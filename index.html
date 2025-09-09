@@ -1,1189 +1,405 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meta Lead Performance Dashboard</title>
-    <!-- Include necessary JS libraries -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
-    <style>
-        /* Base styling */
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-        }
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 16px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            overflow: hidden;
-        }
-        .header {
-            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            color: white;
-            padding: 30px;
-            text-align: center;
-        }
-        .header h1 {
-            margin: 0 0 10px 0;
-            font-size: 2.5rem;
-            font-weight: 700;
-        }
-        .header p {
-            margin: 0;
-            opacity: 0.9;
-            font-size: 1.1rem;
-        }
-        .upload-section {
-            padding: 30px;
-            background: #f8fafc;
-            border-bottom: 1px solid #e2e8f0;
-        }
-        .upload-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-bottom: 20px;
-        }
-        .upload-box {
-            border: 2px dashed #cbd5e0;
-            border-radius: 12px;
-            padding: 30px;
-            text-align: center;
-            transition: all 0.3s ease;
-            background: white;
-        }
-        .upload-box:hover {
-            border-color: #4facfe;
-            background: #f0f9ff;
-        }
-        .upload-box.dragover {
-            border-color: #00f2fe;
-            background: #ecfeff;
-            transform: scale(1.02);
-        }
-        .upload-box input {
-            display: none;
-        }
-        .upload-label {
-            cursor: pointer;
-            display: block;
-        }
-        .upload-icon {
-            font-size: 3rem;
-            margin-bottom: 10px;
-            color: #64748b;
-        }
-        .upload-text {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #334155;
-            margin-bottom: 5px;
-        }
-        .upload-subtext {
-            color: #64748b;
-            font-size: 0.9rem;
-        }
-        .process-button {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            padding: 15px 40px;
-            border-radius: 25px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: block;
-            margin: 0 auto;
-        }
-        .process-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
-        }
-        .process-button:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            transform: none;
-        }
-        .dashboard {
-            display: none;
-            padding: 30px;
-        }
-        .metrics-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-bottom: 40px;
-        }
-        .metric-card {
-            background: white;
-            border-radius: 12px;
-            padding: 25px;
-            border-left: 4px solid #4facfe;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            transition: transform 0.2s ease;
-        }
-        .metric-card:hover {
-            transform: translateY(-2px);
-        }
-        .metric-value {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #1e293b;
-            margin-bottom: 5px;
-        }
-        .metric-label {
-            color: #64748b;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        .chart-container {
-            background: white;
-            border-radius: 12px;
-            padding: 25px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-        }
-        .chart-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: #1e293b;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        .month-selector {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        .month-selector select {
-            padding: 10px 20px;
-            border-radius: 8px;
-            border: 2px solid #e2e8f0;
-            font-size: 1rem;
-            background: white;
-        }
-        .status-indicator {
-            padding: 10px 20px;
-            border-radius: 8px;
-            margin: 10px 0;
-            text-align: center;
-        }
-        .status-success {
-            background: #dcfce7;
-            color: #166534;
-            border: 1px solid #bbf7d0;
-        }
-        .status-error {
-            background: #fef2f2;
-            color: #991b1b;
-            border: 1px solid #fecaca;
-        }
-        .data-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-        .data-table th,
-        .data-table td {
-            padding: 12px;
-            text-align: left;
-            border-bottom: 1px solid #e2e8f0;
-        }
-        .data-table th {
-            background: #f8fafc;
-            font-weight: 600;
-            color: #374151;
-        }
-        .loading {
-            display: none;
-            text-align: center;
-            padding: 20px;
-        }
-        .spinner {
-            border: 4px solid #f3f4f6;
-            border-top: 4px solid #4facfe;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 10px;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-    </style>
+<meta charset="UTF-8" />
+<title>Meta Lead Performance Dashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- External libs -->
+<!-- External libs loaded without integrity/crossorigin to avoid local SRI issues -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/luxon/3.4.4/luxon.min.js"></script>
+<style>
+  :root {
+    --bg:#f2f4f8; --card:#fff; --muted:#6b7280; --ink:#0f172a; --accent:#7c5cff;
+    --pill:#e9e5ff; --ok:#16a34a; --warn:#f59e0b;
+  }
+  body { margin:0; background:var(--bg); font:14px/1.4 system-ui, -apple-system, Segoe UI, Roboto, sans-serif; color:var(--ink);}
+  .wrap{max-width:1200px; margin:0 auto; padding:20px;}
+  .header{background:linear-gradient(90deg,#57c1eb,#6a88f7); color:#fff; border-radius:16px; padding:28px; text-align:center;}
+  .header h1{margin:0 0 8px; font-size:28px}
+  .uploads{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin:18px 0}
+  .u{background:var(--card); border:2px dashed #cbd5e1; border-radius:12px; padding:16px; text-align:center}
+  .u input{display:none}
+  .u label{display:block; cursor:pointer; font-weight:600; margin-bottom:6px}
+  .u .hint{color:var(--muted); font-size:12px}
+
+  /* Highlight upload boxes when a file is selected */
+  .u{position:relative; transition:background 0.3s, border-color 0.3s;}
+  .u.uploaded{border-color:#86efac; background:#f0fdf4;}
+  .u.uploaded::after{
+    content:"\2714"; /* Check mark character */
+    color:#16a34a;
+    font-size:20px;
+    font-weight:700;
+    position:absolute;
+    top:6px;
+    right:8px;
+  }
+  .bar{display:flex; gap:12px; align-items:center; flex-wrap:wrap; margin:14px 0}
+  select{padding:10px 12px; border-radius:10px; border:1px solid #d1d5db; background:#fff}
+  .btn{display:inline-block; padding:14px 24px; background:#7c5cff; color:#fff; border:none; border-radius:12px; cursor:pointer; font-weight:700}
+  .ok{background:#e7f7ed; border:1px solid #a7e7bf; color:#065f46; padding:10px 12px; border-radius:10px; margin-top:10px; display:none}
+  .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+  .card{background:var(--card); border-radius:14px; padding:18px; box-shadow:0 1px 2px rgba(0,0,0,.06)}
+  .big{font-size:28px; font-weight:800}
+  .muted{color:var(--muted); text-transform:uppercase; letter-spacing:.05em; font-size:12px}
+  .row{display:flex; gap:14px; flex-wrap:wrap; align-items:center}
+  .pill{background:var(--pill); color:#4f46e5; padding:6px 10px; border-radius:999px; font-size:12px}
+  .charts{display:grid; grid-template-columns:1fr; gap:16px; margin:18px 0}
+  canvas{background:#fff; border-radius:12px; padding:10px}
+  .table{overflow:auto; background:#fff; border-radius:12px; padding:10px}
+  table{width:100%; border-collapse:collapse}
+  th,td{padding:10px; border-bottom:1px solid #e5e7eb; text-align:left}
+  th{font-size:12px; text-transform:uppercase; color:var(--muted)}
+</style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>📊 Marketing Channels Performance Dashboard</h1>
-            <p>Track your leads and deals across Meta, Google Ads, Bing, Thumbtack, Direct and Boostmaps</p>
-        </div>
-        <div class="upload-section">
-            <div class="upload-grid">
-                <!-- Contacts upload -->
-                <div class="upload-box" id="contactsUpload">
-                    <label for="contactsFile" class="upload-label">
-                        <div class="upload-icon">👥</div>
-                        <div class="upload-text">Upload Contacts Export</div>
-                        <div class="upload-subtext">CSV file from HubSpot contacts</div>
-                        <input type="file" id="contactsFile" accept=".csv" />
-                    </label>
-                </div>
-                <!-- Deals upload -->
-                <div class="upload-box" id="dealsUpload">
-                    <label for="dealsFile" class="upload-label">
-                        <div class="upload-icon">💰</div>
-                        <div class="upload-text">Upload Deals Export</div>
-                        <div class="upload-subtext">CSV file from HubSpot deals</div>
-                        <input type="file" id="dealsFile" accept=".csv" />
-                    </label>
-                </div>
-                <!-- Meta spend upload -->
-                <div class="upload-box" id="metaSpendUpload">
-                    <label for="metaSpendFile" class="upload-label">
-                        <div class="upload-icon">💵</div>
-                        <div class="upload-text">Upload Meta Spend</div>
-                        <div class="upload-subtext">CSV file for Meta Ads spend</div>
-                        <input type="file" id="metaSpendFile" accept=".csv" />
-                    </label>
-                </div>
-                <!-- Google Ads spend upload -->
-                <div class="upload-box" id="googleSpendUpload">
-                    <label for="googleSpendFile" class="upload-label">
-                        <div class="upload-icon">💵</div>
-                        <div class="upload-text">Upload Google Ads Spend</div>
-                        <div class="upload-subtext">CSV file for Google Ads spend</div>
-                        <input type="file" id="googleSpendFile" accept=".csv" />
-                    </label>
-                </div>
-                <!-- Bing spend upload -->
-                <div class="upload-box" id="bingSpendUpload">
-                    <label for="bingSpendFile" class="upload-label">
-                        <div class="upload-icon">💵</div>
-                        <div class="upload-text">Upload Bing Ads Spend</div>
-                        <div class="upload-subtext">CSV file for Bing Ads spend</div>
-                        <input type="file" id="bingSpendFile" accept=".csv" />
-                    </label>
-                </div>
-                <!-- Thumbtack spend upload -->
-                <div class="upload-box" id="thumbtackSpendUpload">
-                    <label for="thumbtackSpendFile" class="upload-label">
-                        <div class="upload-icon">💵</div>
-                        <div class="upload-text">Upload Thumbtack Spend</div>
-                        <div class="upload-subtext">CSV file for Thumbtack spend</div>
-                        <input type="file" id="thumbtackSpendFile" accept=".csv" />
-                    </label>
-                </div>
-            </div>
-            <button class="process-button" id="processButton" disabled>
-                Process Data & Generate Dashboard
-            </button>
-            <div class="loading" id="loadingIndicator">
-                <div class="spinner"></div>
-                <div>Processing your data...</div>
-            </div>
-            <div id="statusMessages"></div>
-        </div>
-        <div class="dashboard" id="dashboard">
-            <!-- Filters: add two month dropdowns for creation month and lead stage entry month, and one for channel -->
-            <div class="month-selector">
-                <label for="createMonthFilter">Filter by Lead Created Month:</label>
-                <select id="createMonthFilter">
-                    <option value="all">All Months</option>
-                </select>
-            </div>
-            <div class="month-selector" style="margin-top: 10px;">
-                <label for="leadStageMonthFilter">Filter by Lead Stage Entry Month:</label>
-                <select id="leadStageMonthFilter">
-                    <option value="all">All Months</option>
-                </select>
-            </div>
-            <div class="month-selector" style="margin-top: 10px;">
-                <label for="channelFilter">Filter by Channel:</label>
-                <select id="channelFilter">
-                    <option value="all">All Channels</option>
-                </select>
-            </div>
-            <div class="metrics-grid" id="metricsGrid">
-                <!-- Metrics will be populated here -->
-            </div>
-            <div class="chart-container">
-                <div class="chart-title">Lead & Conversion Performance</div>
-                <canvas id="performanceChart" width="400" height="200"></canvas>
-            </div>
-            <div class="chart-container">
-                <div class="chart-title">Financial Metrics</div>
-                <canvas id="funnelChart" width="400" height="200"></canvas>
-            </div>
-            <div class="chart-container">
-                <div class="chart-title">Cost Metrics</div>
-                <canvas id="dealSizeChart" width="400" height="200"></canvas>
-            </div>
-            <div class="chart-container">
-                <div class="chart-title">Monthly Detail View</div>
-                <table class="data-table" id="detailTable">
-                    <thead>
-                        <tr>
-                            <th>Month</th>
-                            <th>Channel</th>
-                            <th>Leads</th>
-                            <th>Site Visits</th>
-                            <th>Conversion Rate</th>
-                            <th>Total Deal Size</th>
-                            <th>Deals Closed</th>
-                            <th>Avg Time to Close (Days)</th>
-                            <th>Spend</th>
-                            <th>Cost per Lead</th>
-                            <th>Cost per Site Visit</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Data will be populated here -->
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-    <script>
-        // Global variables
-        let contactsData = null;
-        let dealsData = null;
-        // Array of objects representing monthly metrics for each channel
-        let processedData = null;
-        let processedLeadStageData = null;
-        let dashboardCharts = {};
-        // Separate spend data for each channel
-        let metaSpendData = null;
-        let googleSpendData = null;
-        let bingSpendData = null;
-        let thumbtackSpendData = null;
-        // Initialize event listeners on DOM ready
-        document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('contactsFile').addEventListener('change', handleFileUpload);
-            document.getElementById('dealsFile').addEventListener('change', handleFileUpload);
-            // Listen for each spend file input separately
-            document.getElementById('metaSpendFile').addEventListener('change', handleFileUpload);
-            document.getElementById('googleSpendFile').addEventListener('change', handleFileUpload);
-            document.getElementById('bingSpendFile').addEventListener('change', handleFileUpload);
-            document.getElementById('thumbtackSpendFile').addEventListener('change', handleFileUpload);
-            document.getElementById('processButton').addEventListener('click', processData);
-            // Listen for month and channel filter changes
-            document.getElementById('createMonthFilter').addEventListener('change', updateDashboard);
-            document.getElementById('leadStageMonthFilter').addEventListener('change', updateDashboard);
-            document.getElementById('channelFilter').addEventListener('change', updateDashboard);
-            // Drag and drop handlers
-            ['contactsUpload', 'dealsUpload'].forEach(id => {
-                const element = document.getElementById(id);
-                element.addEventListener('dragover', handleDragOver);
-                element.addEventListener('drop', handleDrop);
-                element.addEventListener('dragleave', handleDragLeave);
-            });
-        });
-        function handleDragOver(e) {
-            e.preventDefault();
-            e.currentTarget.classList.add('dragover');
-        }
-        function handleDragLeave(e) {
-            e.currentTarget.classList.remove('dragover');
-        }
-        function handleDrop(e) {
-            e.preventDefault();
-            e.currentTarget.classList.remove('dragover');
-            const files = e.dataTransfer.files;
-            if (files.length > 0) {
-                const input = e.currentTarget.querySelector('input[type="file"]');
-                input.files = files;
-                handleFileUpload({ target: input });
-            }
-        }
-        function handleFileUpload(event) {
-            const file = event.target.files[0];
-            if (!file) return;
-            // Determine which type of file is being uploaded based on the input ID
-            const inputId = event.target.id;
-            let fileType = '';
-            if (inputId === 'contactsFile') fileType = 'contacts';
-            else if (inputId === 'dealsFile') fileType = 'deals';
-            else if (inputId === 'metaSpendFile') fileType = 'metaSpend';
-            else if (inputId === 'googleSpendFile') fileType = 'googleSpend';
-            else if (inputId === 'bingSpendFile') fileType = 'bingSpend';
-            else if (inputId === 'thumbtackSpendFile') fileType = 'thumbtackSpend';
-            showStatus(`Loading ${fileType} file...`, 'info');
-            Papa.parse(file, {
-                header: true,
-                skipEmptyLines: true,
-                dynamicTyping: false,
-                complete: function(results) {
-                    switch (fileType) {
-                        case 'contacts':
-                            contactsData = results.data;
-                            showStatus(`✅ Contacts data loaded (${results.data.length} records)`, 'success');
-                            break;
-                        case 'deals':
-                            dealsData = results.data;
-                            showStatus(`✅ Deals data loaded (${results.data.length} records)`, 'success');
-                            break;
-                        case 'metaSpend':
-                            metaSpendData = results.data;
-                            showStatus(`✅ Meta spend data loaded (${results.data.length} records)`, 'success');
-                            break;
-                        case 'googleSpend':
-                            googleSpendData = results.data;
-                            showStatus(`✅ Google Ads spend data loaded (${results.data.length} records)`, 'success');
-                            break;
-                        case 'bingSpend':
-                            bingSpendData = results.data;
-                            showStatus(`✅ Bing Ads spend data loaded (${results.data.length} records)`, 'success');
-                            break;
-                        case 'thumbtackSpend':
-                            thumbtackSpendData = results.data;
-                            showStatus(`✅ Thumbtack spend data loaded (${results.data.length} records)`, 'success');
-                            break;
-                        default:
-                            showStatus(`❌ Unknown file type uploaded`, 'error');
-                            return;
-                    }
-                    // Enable process button if contacts and deals data have been loaded
-                    if (contactsData && dealsData) {
-                        document.getElementById('processButton').disabled = false;
-                    }
-                },
-                error: function(error) {
-                    showStatus(`❌ Error loading ${fileType} file: ${error.message}`, 'error');
-                }
-            });
-        }
-        function showStatus(message, type) {
-            const statusDiv = document.getElementById('statusMessages');
-            const statusClass = type === 'success' ? 'status-success' : type === 'error' ? 'status-error' : '';
-            statusDiv.innerHTML = `<div class="status-indicator ${statusClass}">${message}</div>`;
-        }
-        function processData() {
-            document.getElementById('loadingIndicator').style.display = 'block';
-            document.getElementById('processButton').disabled = true;
-            setTimeout(() => {
-                try {
-                    // Build maps for contact names and emails for fallback matching
-                    const contactNameMap = {};
-                    const contactEmailMap = {};
-                    contactsData.forEach(contact => {
-                        const firstName = (contact['First Name'] || contact['first name'] || '').toString().trim();
-                        const lastName = (contact['Last Name'] || contact['last name'] || '').toString().trim();
-                        const fullName = `${firstName} ${lastName}`.trim().toLowerCase();
-                        if (fullName) {
-                            contactNameMap[fullName] = contact;
-                        }
-                        const email = (contact['Email'] || contact['email'] || '').toString().trim().toLowerCase();
-                        if (email) {
-                            contactEmailMap[email] = contact;
-                        }
-                    });
-                    // Identify drill‑down fields in contacts for source classification
-                    const drillKeys = contactsData.length > 0 ? Object.keys(contactsData[0]).filter(k => {
-                        const key = k.toString().toLowerCase();
-                        return key.includes('drill') && key.includes('down');
-                    }) : [];
-                    // Define keyword lists for each channel. All keywords are converted to lower case for matching.
-                    const channelKeywords = {
-                        'Meta Ads': [
-                            'construction campaign','facebook','instagram','service campaign','maintenance campaign','fb','ig','meta','good guys pools website campaign updated campaign','good guys pools leads - higher quality leads','good guys pools leads','120218493912890700','retargeting'
-                        ],
-                        'Google Ads': [
-                            'adwords','good guys pools - sales - search','unknown keywords (ssl)','pool store near me','pool resurfacing','pool installation companies near me','pool designs','pool companies near me','google','good guys pools leads','good guys pools leads - higher quality leads','c1d25565-f664-4089-9f0a-1734cc1b3a65','best above ground pool','above ground pools for small backyards','above ground pool installation','good guys pools - sales - search'
-                        ],
-                        'Bing Ads': ['bing'],
-                        'Direct': ['crm_ui','integration','goodguyspools.com/','zapier'],
-                        'Boostmaps': ['boostmaps']
-                    };
-                    // Helper function to determine channel for a contact
-                    function getChannelForContact(contact) {
-                        /* Determine the marketing channel for a contact based on multiple fields.
-                         * - Manual and custom lead sources: Thumbtack
-                         * - Drill-down fields: map keywords to channels (Meta Ads, Google Ads, etc.)
-                         * - Defaults to Direct if no keywords match.
-                         */
-                        const manualLeadSrc = (contact['Manual Lead Source'] || contact['manual lead source'] || '').toString().toLowerCase();
-                        const leadSourceCustom = (contact['Lead Source (Custom)'] || contact['Lead Source'] || contact['lead source (custom)'] || '').toString().toLowerCase();
-                        // Thumbtack from manual or custom fields
-                        if (manualLeadSrc.includes('thumbtack') || leadSourceCustom.includes('thumbtack')) {
-                            return 'Thumbtack';
-                        }
-                        // Combine all drill-down fields (traffic source) into one lower-case string
-                        let drillCombined = '';
-                        drillKeys.forEach(key => {
-                            const val = (contact[key] || '').toString().toLowerCase();
-                            if (val) drillCombined += ' ' + val;
-                        });
-                        // If manual lead source has meta-related keywords, treat as Meta Ads
-                        if (manualLeadSrc.includes('facebook') || manualLeadSrc.includes('instagram') || manualLeadSrc.includes('meta')) {
-                            return 'Meta Ads';
-                        }
-                        // Check keyword mapping across channels
-                        for (const channel in channelKeywords) {
-                            // Skip Boostmaps here; handle separately
-                            if (channel === 'Boostmaps') continue;
-                            const keywords = channelKeywords[channel];
-                            for (const kw of keywords) {
-                                if (drillCombined.includes(kw)) {
-                                    return channel;
-                                }
-                            }
-                        }
-                        // Additional simple checks
-                        if (drillCombined.includes('bing')) return 'Bing Ads';
-                        if (drillCombined.includes('boostmaps')) return 'Boostmaps';
-                        if (drillCombined.includes('google')) return 'Google Ads';
-                        if (drillCombined.includes('facebook') || drillCombined.includes('instagram') || drillCombined.includes('meta') || drillCombined.includes('fb') || drillCombined.includes('ig')) {
-                            return 'Meta Ads';
-                        }
-                        // Default to Direct if none matched
-                        return 'Direct';
-                    }
-                    // Initialise nested monthly data structure per channel
-                    const monthlyData = {};
-                    function ensureMonth(channel, month) {
-                        if (!monthlyData[channel]) monthlyData[channel] = {};
-                        if (!monthlyData[channel][month]) {
-                            monthlyData[channel][month] = {
-                                channel: channel,
-                                month: month,
-                                metaLeads: 0,
-                                siteVisits: 0,
-                                totalDealSize: 0,
-                                closedDeals: 0,
-                                wonDeals: 0,
-                                totalClosureDays: 0,
-                                closedDealsCount: 0
-                            };
-                        }
-                        return monthlyData[channel][month];
-                    }
-                    // Step 1: Aggregate leads per contact by month and channel
-                    contactsData.forEach(contact => {
-                        const channel = getChannelForContact(contact);
-                        const createDateStr = contact['Create Date'] || contact['Created Date'] || contact['Date Created'] || contact['Create date'];
-                        const createDate = new Date(createDateStr);
-                        if (isNaN(createDate.getTime())) return;
-                        const monthKey = `${createDate.getFullYear()}-${String(createDate.getMonth() + 1).padStart(2,'0')}`;
-                        const entry = ensureMonth(channel, monthKey);
-                        entry.metaLeads++;
-                    });
-                    // Step 2: Process deals and assign metrics to channel/month
-                    dealsData.forEach(deal => {
-                        // Extract associated contact IDs from possible fields
-                        const rawIds = deal['Associated Contact IDs'] || deal['Associated Contact ID'] || deal['Associated contact ID'] || deal['Associated Contact Id'] || deal['Associated contact Id'] || deal['contact_associated_id'];
-                        let associatedIds = [];
-                        if (rawIds !== undefined && rawIds !== null) {
-                            const idStr = rawIds.toString();
-                            associatedIds = idStr.split(/[,;]+/).map(s => s.trim()).filter(s => s.length > 0);
-                        }
-                        // Find associated contact by Record ID
-                        let associatedContact = contactsData.find(contact => {
-                            const recordIdStr = String(contact['Record ID']);
-                            return associatedIds.some(id => id === recordIdStr);
-                        });
-                        // Fallback: match by contact name or email
-                        if (!associatedContact) {
-                            const dealKeys = Object.keys(deal);
-                            let dealContactName = '';
-                            let dealContactEmail = '';
-                            dealKeys.forEach(key => {
-                                const lowerKey = key.toString().toLowerCase();
-                                const val = (deal[key] || '').toString().trim();
-                                if (!dealContactName && lowerKey.includes('contact') && lowerKey.includes('name')) {
-                                    dealContactName = val.toLowerCase();
-                                }
-                                if (!dealContactEmail && lowerKey.includes('contact') && lowerKey.includes('email')) {
-                                    dealContactEmail = val.toLowerCase();
-                                }
-                            });
-                            if (dealContactName && contactNameMap[dealContactName]) {
-                                associatedContact = contactNameMap[dealContactName];
-                            } else if (dealContactEmail && contactEmailMap[dealContactEmail]) {
-                                associatedContact = contactEmailMap[dealContactEmail];
-                            } else if (dealContactName) {
-                                const nameParts = dealContactName.split(/\s+/).filter(Boolean);
-                                if (nameParts.length >= 2) {
-                                    const first = nameParts[0];
-                                    const last = nameParts[nameParts.length - 1];
-                                    associatedContact = contactsData.find(contact => {
-                                        const cFirst = (contact['First Name'] || contact['first name'] || '').toString().trim().toLowerCase();
-                                        const cLast = (contact['Last Name'] || contact['last name'] || '').toString().trim().toLowerCase();
-                                        return cFirst === first && cLast === last;
-                                    });
-                                }
-                            }
-                        }
-                        if (!associatedContact) return;
-                        const channel = getChannelForContact(associatedContact);
-                        // Use contact create date for grouping
-                        const contactCreateDateStr = associatedContact['Create Date'] || associatedContact['Created Date'] || associatedContact['Date Created'] || associatedContact['Create date'];
-                        const contactCreateDate = new Date(contactCreateDateStr);
-                        if (isNaN(contactCreateDate.getTime())) return;
-                        const monthKey = `${contactCreateDate.getFullYear()}-${String(contactCreateDate.getMonth() + 1).padStart(2,'0')}`;
-                        const entry = ensureMonth(channel, monthKey);
-                        // Parse deal amount from possible fields
-                        const dealAmountRaw = deal['AMOUNT'] || deal['Amount'] || deal['amount'] || deal['Deal Amount'] || 0;
-                        const dealAmount = parseFloat(dealAmountRaw.toString().replace(/[^0-9.\-]/g, '')) || 0;
-                        // Determine if site visit: stage includes appointment scheduled OR amount > 24000
-                        const dealStage = (deal['Deal Stage'] || deal['DEAL STAGE'] || deal['deal stage'] || '').toString().toLowerCase();
-                        const containsAppointmentScheduled = dealStage.includes('appointment') && dealStage.includes('scheduled');
-                        const hasSiteVisit = containsAppointmentScheduled || (!containsAppointmentScheduled && dealAmount > 24000);
-                        // Parse dates
-                        const createDate = new Date(deal['Create Date'] || deal['Deal Created Date']);
-                        const closeDate = deal['Close Date'] ? new Date(deal['Close Date']) : null;
-                        // Update metrics
-                        if (hasSiteVisit) entry.siteVisits++;
-                        entry.totalDealSize += dealAmount || 0;
-                        // Determine if closed/won
-                        const isClosed = dealStage.includes('closed');
-                        const isWon = dealStage.includes('closed') && dealStage.includes('won');
-                        if (isClosed) {
-                            entry.closedDeals++;
-                            if (isWon) entry.wonDeals++;
-                            if (closeDate && createDate) {
-                                entry.totalClosureDays += Math.floor((closeDate - createDate) / (1000 * 60 * 60 * 24));
-                                entry.closedDealsCount++;
-                            }
-                        }
-                    });
-                    // Step 3: Parse spend data for each channel
-                    const spendByChannelMonth = {};
-                    function addSpend(channel, month, amount) {
-                        if (!spendByChannelMonth[channel]) spendByChannelMonth[channel] = {};
-                        spendByChannelMonth[channel][month] = (spendByChannelMonth[channel][month] || 0) + amount;
-                    }
-                    // Helper to parse numeric amount from various formats
-                    const parseAmount = val => {
-                        if (val === undefined || val === null) return 0;
-                        return parseFloat(val.toString().replace(/[^0-9.\-]/g, '')) || 0;
-                    };
-                    // Parse Meta spend
-                    if (metaSpendData) {
-                        metaSpendData.forEach(row => {
-                            const dateStr = row['Reporting starts'] || row['Reporting Starts'] || row['reporting starts'] || row['Date'] || row['Start Date'] || row['Start date'];
-                            if (!dateStr) return;
-                            const date = new Date(dateStr);
-                            if (isNaN(date.getTime())) return;
-                            const monthKey = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2,'0')}`;
-                            const amountStr = row['Amount spent (USD)'] || row['Amount Spent (USD)'] || row['amount spent (usd)'] || row['Amount'] || row['Spend'] || row['Cost'] || row['Spend Amount'];
-                            const amt = parseAmount(amountStr);
-                            addSpend('Meta Ads', monthKey, amt);
-                        });
-                    }
-                    // Parse Google Ads spend
-                    if (googleSpendData) {
-                        googleSpendData.forEach(row => {
-                            const dateStr = row['Day'] || row['Date'] || row['day'];
-                            if (!dateStr) return;
-                            const date = new Date(dateStr);
-                            if (isNaN(date.getTime())) return;
-                            const monthKey = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2,'0')}`;
-                            const amountStr = row['Billed cost'] || row['Billed Cost'] || row['billed cost'] || row['Cost'] || row['Served cost'] || row['Served Cost'];
-                            const amt = parseAmount(amountStr);
-                            addSpend('Google Ads', monthKey, amt);
-                        });
-                    }
-                    // Parse Bing spend
-                    if (bingSpendData) {
-                        bingSpendData.forEach(row => {
-                            const dateStr = row['Date'] || row['date'];
-                            const amountStr = row['Spend'] || row['spend'] || row['Cost'] || row['cost'];
-                            if (!dateStr || !amountStr) return;
-                            const date = new Date(dateStr);
-                            if (isNaN(date.getTime())) return;
-                            const monthKey = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2,'0')}`;
-                            const amt = parseAmount(amountStr);
-                            addSpend('Bing Ads', monthKey, amt);
-                        });
-                    }
-                    // Parse Thumbtack spend
-                    if (thumbtackSpendData) {
-                        thumbtackSpendData.forEach(row => {
-                            const dateStr = row['date'] || row['Date'];
-                            const amountStr = row['amount_usd'] || row['Amount USD'] || row['Amount'];
-                            if (!dateStr || !amountStr) return;
-                            const date = new Date(dateStr);
-                            if (isNaN(date.getTime())) return;
-                            const monthKey = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2,'0')}`;
-                            const amt = parseAmount(amountStr);
-                            addSpend('Thumbtack', monthKey, amt);
-                        });
-                    }
-                    // Step 4: Build processedData array (by contact create month) and processedLeadStageData (by lead stage month)
-                    const resultCreate = [];
-                    const resultLeadStage = [];
-                    // Build aggregated data for create month
-                    Object.keys(monthlyData).forEach(channel => {
-                        const months = Object.keys(monthlyData[channel]);
-                        months.forEach(monthKey => {
-                            const data = monthlyData[channel][monthKey];
-                            let monthSpend = 0;
-                            if (channel === 'Boostmaps') {
-                                monthSpend = 900;
-                            } else {
-                                monthSpend = (spendByChannelMonth[channel] && spendByChannelMonth[channel][monthKey]) || 0;
-                            }
-                            const costPerLead = data.metaLeads > 0 ? monthSpend / data.metaLeads : 0;
-                            const costPerSiteVisit = data.siteVisits > 0 ? monthSpend / data.siteVisits : 0;
-                            resultCreate.push({
-                                channel: channel,
-                                month: monthKey,
-                                createMonth: monthKey,
-                                leadStageMonth: null,
-                                metaLeads: data.metaLeads,
-                                siteVisits: data.siteVisits,
-                                totalDealSize: data.totalDealSize,
-                                closedDeals: data.closedDeals,
-                                wonDeals: data.wonDeals,
-                                conversionRate: data.metaLeads > 0 ? (data.siteVisits / data.metaLeads * 100) : 0,
-                                avgTimeToClosure: data.closedDealsCount > 0 ? Math.round(data.totalClosureDays / data.closedDealsCount) : 0,
-                                spend: monthSpend,
-                                costPerLead: costPerLead,
-                                costPerSiteVisit: costPerSiteVisit
-                            });
-                        });
-                    });
-                    // Build aggregated data for lead stage month: initialize structure
-                    const leadStageMonthlyData = {};
-                    function ensureLeadMonth(channel, month) {
-                        if (!leadStageMonthlyData[channel]) leadStageMonthlyData[channel] = {};
-                        if (!leadStageMonthlyData[channel][month]) {
-                            leadStageMonthlyData[channel][month] = {
-                                channel: channel,
-                                month: month,
-                                metaLeads: 0,
-                                siteVisits: 0,
-                                totalDealSize: 0,
-                                closedDeals: 0,
-                                wonDeals: 0,
-                                totalClosureDays: 0,
-                                closedDealsCount: 0
-                            };
-                        }
-                        return leadStageMonthlyData[channel][month];
-                    }
-                    // Aggregate leads by lead stage month
-                    contactsData.forEach(contact => {
-                        const channel = getChannelForContact(contact);
-                        const leadStageDateStr = contact['Date entered "Lead (Lifecycle Stage Pipeline)"'] || contact['date entered "lead (lifecycle stage pipeline)"'];
-                        if (!leadStageDateStr) return;
-                        const leadDate = new Date(leadStageDateStr);
-                        if (isNaN(leadDate.getTime())) return;
-                        const monthKey = `${leadDate.getFullYear()}-${String(leadDate.getMonth() + 1).padStart(2, '0')}`;
-                        const entry = ensureLeadMonth(channel, monthKey);
-                        entry.metaLeads++;
-                    });
-                    // Aggregate deals by lead stage month
-                    // Aggregate deals by lead stage month
-                    processedDeals.forEach(deal => {
-                        // We group by associated contact's lead stage month
-                        const contactIdCandidates = [];
-                        // Determine associated contact(s) for this deal again
-                        const dealAssociatedIds = deal['Associated Contact IDs'] || deal['Associated Contact ID'] || deal['Associated contact ID'] || deal['Associated Contact Id'] || deal['Associated contact Id'] || deal['contact_associated_id'];
-                        if (dealAssociatedIds) {
-                            const ids = dealAssociatedIds.toString().split(/[,;]+/).map(s => s.trim()).filter(Boolean);
-                            contactIdCandidates.push(...ids);
-                        }
-                        // Determine primary associated contact by matching contact names or emails if id not found
-                        let chosenContact = null;
-                        for (const candidate of contactIdCandidates) {
-                            chosenContact = contactsData.find(c => String(c['Record ID']) === candidate);
-                            if (chosenContact) break;
-                        }
-                        if (!chosenContact) {
-                            // Fallback: attempt to match by contactNameMap or contactEmailMap
-                            // We reuse earlier prepared contactNameMap and contactEmailMap by closure scope
-                            // (they are available here because we built them above in this function)
-                            const name = (deal['Associated Contact'] || '').toString().toLowerCase().trim();
-                            if (name && contactNameMap[name]) {
-                                chosenContact = contactNameMap[name];
-                            } else {
-                                const email = (deal['Associated Contact Email'] || deal['contact email'] || '').toString().toLowerCase().trim();
-                                if (email && contactEmailMap[email]) {
-                                    chosenContact = contactEmailMap[email];
-                                }
-                            }
-                        }
-                        if (!chosenContact) return;
-                        const channel = getChannelForContact(chosenContact);
-                        // Determine lead stage month for chosen contact
-                        const leadStageDateStr = chosenContact['Date entered "Lead (Lifecycle Stage Pipeline)"'] || chosenContact['date entered "lead (lifecycle stage pipeline)"'];
-                        if (!leadStageDateStr) return;
-                        const leadDate = new Date(leadStageDateStr);
-                        if (isNaN(leadDate.getTime())) return;
-                        const monthKey = `${leadDate.getFullYear()}-${String(leadDate.getMonth() + 1).padStart(2,'0')}`;
-                        const entry = ensureLeadMonth(channel, monthKey);
-                        // Use same logic as earlier to update metrics
-                        if (deal.hasSiteVisit) entry.siteVisits++;
-                        entry.totalDealSize += deal.dealAmount || 0;
-                        if (deal.isClosed) {
-                            entry.closedDeals++;
-                            if (deal.isWon) entry.wonDeals++;
-                            if (deal.timeToClosure) {
-                                entry.totalClosureDays += deal.timeToClosure;
-                                entry.closedDealsCount++;
-                            }
-                        }
-                    });
-                    // Convert leadStageMonthlyData to array
-                    Object.keys(leadStageMonthlyData).forEach(channel => {
-                        const months = Object.keys(leadStageMonthlyData[channel]);
-                        months.forEach(monthKey => {
-                            const data = leadStageMonthlyData[channel][monthKey];
-                            let monthSpend = 0;
-                            if (channel === 'Boostmaps') {
-                                monthSpend = 900;
-                            } else {
-                                monthSpend = (spendByChannelMonth[channel] && spendByChannelMonth[channel][monthKey]) || 0;
-                            }
-                            const costPerLead = data.metaLeads > 0 ? monthSpend / data.metaLeads : 0;
-                            const costPerSiteVisit = data.siteVisits > 0 ? monthSpend / data.siteVisits : 0;
-                            resultLeadStage.push({
-                                channel: channel,
-                                month: monthKey,
-                                createMonth: null,
-                                leadStageMonth: monthKey,
-                                metaLeads: data.metaLeads,
-                                siteVisits: data.siteVisits,
-                                totalDealSize: data.totalDealSize,
-                                closedDeals: data.closedDeals,
-                                wonDeals: data.wonDeals,
-                                conversionRate: data.metaLeads > 0 ? (data.siteVisits / data.metaLeads * 100) : 0,
-                                avgTimeToClosure: data.closedDealsCount > 0 ? Math.round(data.totalClosureDays / data.closedDealsCount) : 0,
-                                spend: monthSpend,
-                                costPerLead: costPerLead,
-                                costPerSiteVisit: costPerSiteVisit
-                            });
-                        });
-                    });
-                    // Sort results
-                    processedData = resultCreate.sort((a, b) => a.month.localeCompare(b.month));
-                    processedLeadStageData = resultLeadStage.sort((a, b) => a.month.localeCompare(b.month));
-                    // Populate filters with new options
-                    populateMonthFilter();
-                    populateChannelFilter();
-                    updateDashboard();
-                    document.getElementById('dashboard').style.display = 'block';
-                    document.getElementById('loadingIndicator').style.display = 'none';
-                    showStatus('✅ Dashboard generated successfully!', 'success');
-                } catch (error) {
-                    console.error('Processing error:', error);
-                    showStatus(`❌ Error processing data: ${error.message}`, 'error');
-                    document.getElementById('loadingIndicator').style.display = 'none';
-                    document.getElementById('processButton').disabled = false;
-                }
-            }, 1000);
-        }
-        function populateMonthFilter() {
-            // Populate both month filters: create month and lead stage month
-            const createFilter = document.getElementById('createMonthFilter');
-            const leadFilter = document.getElementById('leadStageMonthFilter');
-            createFilter.innerHTML = '<option value="all">All Months</option>';
-            leadFilter.innerHTML = '<option value="all">All Months</option>';
-            const seenCreate = new Set();
-            const seenLead = new Set();
-            // Use processedData for create months
-            processedData.forEach(data => {
-                if (!seenCreate.has(data.month)) {
-                    seenCreate.add(data.month);
-                    const opt = document.createElement('option');
-                    opt.value = data.month;
-                    opt.textContent = new Date(data.month + '-01').toLocaleDateString('en-US', { year:'numeric', month:'long' });
-                    createFilter.appendChild(opt);
-                }
-            });
-            // Use processedLeadStageData for lead stage months
-            if (processedLeadStageData) {
-                processedLeadStageData.forEach(data => {
-                    if (!seenLead.has(data.month)) {
-                        seenLead.add(data.month);
-                        const opt = document.createElement('option');
-                        opt.value = data.month;
-                        opt.textContent = new Date(data.month + '-01').toLocaleDateString('en-US', { year:'numeric', month:'long' });
-                        leadFilter.appendChild(opt);
-                    }
-                });
-            }
-        }
+<div class="wrap">
+  <div class="header">
+    <h1>📊 Meta Lead Performance Dashboard</h1>
+    <p>Track contacts from creation to close and map platform spend</p>
+  </div>
 
-        // Populate channel filter with unique channels from processed data
-        function populateChannelFilter() {
-            const channelFilter = document.getElementById('channelFilter');
-            channelFilter.innerHTML = '<option value="all">All Channels</option>';
-            const seenChannels = new Set();
-            // Combine channels from both datasets (processedData and processedLeadStageData)
-            const allData = (processedData || []).concat(processedLeadStageData || []);
-            allData.forEach(item => {
-                if (!seenChannels.has(item.channel)) {
-                    seenChannels.add(item.channel);
-                    const option = document.createElement('option');
-                    option.value = item.channel;
-                    option.textContent = item.channel;
-                    channelFilter.appendChild(option);
-                }
-            });
-        }
-        function updateDashboard() {
-            // Determine which dataset to use based on selected filters
-            const selectedCreateMonth = document.getElementById('createMonthFilter').value;
-            const selectedLeadStageMonth = document.getElementById('leadStageMonthFilter').value;
-            const selectedChannel = document.getElementById('channelFilter').value;
-            let dataset;
-            // If a specific lead stage month is selected (not 'all'), use the lead stage aggregated dataset
-            if (selectedLeadStageMonth && selectedLeadStageMonth !== 'all') {
-                dataset = processedLeadStageData || [];
-            } else {
-                dataset = processedData || [];
-            }
-            // Filter dataset by month based on the selected filter
-            let filtered = dataset;
-            if (dataset === processedLeadStageData) {
-                if (selectedLeadStageMonth && selectedLeadStageMonth !== 'all') {
-                    filtered = filtered.filter(item => item.month === selectedLeadStageMonth);
-                }
-            } else {
-                if (selectedCreateMonth && selectedCreateMonth !== 'all') {
-                    filtered = filtered.filter(item => item.month === selectedCreateMonth);
-                }
-            }
-            // Filter by channel if specified
-            if (selectedChannel && selectedChannel !== 'all') {
-                filtered = filtered.filter(item => item.channel === selectedChannel);
-            }
-            updateMetrics(filtered);
-            updateCharts(filtered);
-            updateDetailTable(filtered);
-        }
-        function updateMetrics(data) {
-            const totals = data.reduce((acc, month) => ({
-                metaLeads: acc.metaLeads + month.metaLeads,
-                siteVisits: acc.siteVisits + month.siteVisits,
-                totalDealSize: acc.totalDealSize + month.totalDealSize,
-                closedDeals: acc.closedDeals + month.closedDeals,
-                wonDeals: acc.wonDeals + month.wonDeals,
-                totalSpend: acc.totalSpend + (month.spend || 0),
-                sumCostConversion: acc.sumCostConversion + month.conversionRate
-            }), { metaLeads:0, siteVisits:0, totalDealSize:0, closedDeals:0, wonDeals:0, totalSpend:0, sumCostConversion:0 });
-            const avgConversion = data.length > 0 ? totals.sumCostConversion / data.length : 0;
-            const avgCostPerLead = totals.metaLeads > 0 ? totals.totalSpend / totals.metaLeads : 0;
-            const avgCostPerSiteVisit = totals.siteVisits > 0 ? totals.totalSpend / totals.siteVisits : 0;
-            document.getElementById('metricsGrid').innerHTML = `
-                <div class="metric-card"><div class="metric-value">${totals.metaLeads}</div><div class="metric-label">Leads</div></div>
-                <div class="metric-card"><div class="metric-value">${totals.siteVisits}</div><div class="metric-label">Site Visits</div></div>
-                <div class="metric-card"><div class="metric-value">${avgConversion.toFixed(1)}%</div><div class="metric-label">Avg Conversion Rate</div></div>
-                <div class="metric-card"><div class="metric-value">$${totals.totalDealSize.toLocaleString()}</div><div class="metric-label">Total Deal Size</div></div>
-                <div class="metric-card"><div class="metric-value">${totals.closedDeals}</div><div class="metric-label">Total Deals Closed</div></div>
-                <div class="metric-card"><div class="metric-value">${totals.wonDeals}</div><div class="metric-label">Deals Won</div></div>
-                <div class="metric-card"><div class="metric-value">$${totals.totalSpend.toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2})}</div><div class="metric-label">Total Spend</div></div>
-                <div class="metric-card"><div class="metric-value">${avgCostPerLead > 0 ? '$' + avgCostPerLead.toFixed(2) : 'N/A'}</div><div class="metric-label">Avg Cost per Lead</div></div>
-                <div class="metric-card"><div class="metric-value">${avgCostPerSiteVisit > 0 ? '$' + avgCostPerSiteVisit.toFixed(2) : 'N/A'}</div><div class="metric-label">Avg Cost per Site Visit</div></div>
-            `;
-        }
-        function updateCharts(data) {
-            // Generate all charts with updated definitions.  Each chart shows a month-over-month
-            // trend for a specific set of metrics rather than a one-time funnel or bar summary.
-            try {
-                createPerformanceChart(data);
-                createFinancialChart(data);
-                createCostChart(data);
-            } catch (error) {
-                console.error('Chart creation error:', error);
-                showStatus('📊 Data processed successfully, charts may have minor issues', 'success');
-            }
-        }
-        function createPerformanceChart(data) {
-            const ctx = document.getElementById('performanceChart').getContext('2d');
-            if (dashboardCharts.performance) {
-                dashboardCharts.performance.destroy();
-            }
-            dashboardCharts.performance = new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: data.map(d => new Date(d.month + '-01').toLocaleDateString('en-US',{year:'numeric', month:'short'})),
-                    datasets: [
-                        {
-                            label: 'Leads',
-                            data: data.map(d => d.metaLeads),
-                            borderColor: '#4facfe',
-                            backgroundColor: 'rgba(79, 172, 254, 0.1)',
-                            tension: 0.4
-                        },
-                        {
-                            label: 'Site Visits',
-                            data: data.map(d => d.siteVisits),
-                            borderColor: '#00f2fe',
-                            backgroundColor: 'rgba(0, 242, 254, 0.1)',
-                            tension: 0.4
-                        },
-                        {
-                            label: 'Closed Deals',
-                            data: data.map(d => d.closedDeals),
-                            borderColor: '#667eea',
-                            backgroundColor: 'rgba(102, 126, 234, 0.1)',
-                            tension: 0.4
-                        },
-                        {
-                            label: 'Conversion Rate (%)',
-                            data: data.map(d => parseFloat(d.conversionRate.toFixed(2))),
-                            borderColor: '#ffbb00',
-                            backgroundColor: 'rgba(255, 187, 0, 0.1)',
-                            tension: 0.4,
-                            yAxisID: 'y1'
-                        }
-                    ]
-                },
-                options: {
-                    responsive: true,
-                    plugins: { legend: { position:'top' } },
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            position: 'left',
-                            title: { display: true, text: 'Count' }
-                        },
-                        y1: {
-                            beginAtZero: true,
-                            position: 'right',
-                            title: { display: true, text: 'Conversion Rate (%)' },
-                            grid: { drawOnChartArea: false }
-                        }
-                    }
-                }
-            });
-        }
-        // Financial metrics chart: shows month-over-month performance for total deal size and spend.
-        function createFinancialChart(data) {
-            const ctx = document.getElementById('funnelChart').getContext('2d');
-            // Destroy existing chart if present to avoid memory leaks
-            if (dashboardCharts.financial) {
-                dashboardCharts.financial.destroy();
-            }
-            dashboardCharts.financial = new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: data.map(d => new Date(d.month + '-01').toLocaleDateString('en-US',{ year:'numeric', month:'short' })),
-                    datasets: [
-                        {
-                            label: 'Total Deal Size ($)',
-                            data: data.map(d => d.totalDealSize),
-                            borderColor: '#764ba2',
-                            backgroundColor: 'rgba(118, 75, 162, 0.1)',
-                            tension: 0.4
-                        },
-                        {
-                            label: 'Spend ($)',
-                            data: data.map(d => d.spend || 0),
-                            borderColor: '#4facfe',
-                            backgroundColor: 'rgba(79, 172, 254, 0.1)',
-                            tension: 0.4
-                        }
-                    ]
-                },
-                options: {
-                    responsive: true,
-                    plugins: {
-                        legend: {
-                            position: 'top'
-                        }
-                    },
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            title: { display: true, text: '$ (USD)' },
-                            ticks: {
-                                callback: function(value) {
-                                    return '$' + value.toLocaleString();
-                                }
-                            }
-                        }
-                    }
-                }
-            });
-        }
-        // Cost metrics chart: shows month-over-month performance for cost per lead and cost per site visit.
-        function createCostChart(data) {
-            const ctx = document.getElementById('dealSizeChart').getContext('2d');
-            // Destroy existing cost chart if it exists
-            if (dashboardCharts.cost) {
-                dashboardCharts.cost.destroy();
-            }
-            dashboardCharts.cost = new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: data.map(d => new Date(d.month + '-01').toLocaleDateString('en-US',{ year:'numeric', month:'short' })),
-                    datasets: [
-                        {
-                            label: 'Cost per Lead ($)',
-                            data: data.map(d => (d.costPerLead || 0)),
-                            borderColor: '#ff6f61',
-                            backgroundColor: 'rgba(255, 111, 97, 0.1)',
-                            tension: 0.4
-                        },
-                        {
-                            label: 'Cost per Site Visit ($)',
-                            data: data.map(d => (d.costPerSiteVisit || 0)),
-                            borderColor: '#00c49a',
-                            backgroundColor: 'rgba(0, 196, 154, 0.1)',
-                            tension: 0.4
-                        }
-                    ]
-                },
-                options: {
-                    responsive: true,
-                    plugins: {
-                        legend: {
-                            position: 'top'
-                        }
-                    },
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            title: { display: true, text: 'Cost ($)' },
-                            ticks: {
-                                callback: function(value) {
-                                    return '$' + value.toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2});
-                                }
-                            }
-                        }
-                    }
-                }
-            });
-        }
-        function updateDetailTable(data) {
-            const tbody = document.querySelector('#detailTable tbody');
-            tbody.innerHTML = data.map(row => {
-                const monthFormatted = new Date(row.month + '-01').toLocaleDateString('en-US',{year:'numeric', month:'long'});
-                const avgTime = row.avgTimeToClosure > 0 ? row.avgTimeToClosure : 'N/A';
-                const spend = row.spend || 0;
-                const cpl = row.costPerLead > 0 ? '$' + row.costPerLead.toFixed(2) : 'N/A';
-                const cps = row.costPerSiteVisit > 0 ? '$' + row.costPerSiteVisit.toFixed(2) : 'N/A';
-                return `<tr>
-                    <td>${monthFormatted}</td>
-                    <td>${row.channel}</td>
-                    <td>${row.metaLeads}</td>
-                    <td>${row.siteVisits}</td>
-                    <td>${row.conversionRate.toFixed(1)}%</td>
-                    <td>$${row.totalDealSize.toLocaleString()}</td>
-                    <td>${row.closedDeals} (${row.wonDeals} won)</td>
-                    <td>${avgTime}</td>
-                    <td>$${spend.toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2})}</td>
-                    <td>${cpl}</td>
-                    <td>${cps}</td>
-                </tr>`;
-            }).join('');
-        }
-    </script>
+  <!-- Uploaders -->
+  <div class="uploads">
+    <div class="u"><label for="contactsCsv">Upload Contacts CSV</label><input id="contactsCsv" type="file" accept=".csv"/><div class="hint">HubSpot contacts export</div></div>
+    <div class="u"><label for="dealsCsv">Upload Deals CSV</label><input id="dealsCsv" type="file" accept=".csv"/><div class="hint">HubSpot deals export</div></div>
+    <div class="u"><label for="metaCsv">Upload Meta Spend CSV</label><input id="metaCsv" type="file" accept=".csv"/><div class="hint">Meta spend</div></div>
+    <div class="u"><label for="googleCsv">Upload Google Ads Spend CSV</label><input id="googleCsv" type="file" accept=".csv"/><div class="hint">Google Ads spend</div></div>
+    <div class="u"><label for="bingCsv">Upload Bing Spend CSV</label><input id="bingCsv" type="file" accept=".csv"/><div class="hint">Bing Ads spend</div></div>
+    <div class="u"><label for="thumbtackCsv">Upload Thumbtack Spend CSV</label><input id="thumbtackCsv" type="file" accept=".csv"/><div class="hint">Thumbtack spend</div></div>
+  </div>
+
+  <div class="row">
+    <button class="btn" id="processBtn">Process Data & Generate Dashboard</button>
+    <div id="status" class="ok">✅ Data loaded</div>
+  </div>
+
+  <!-- Filters -->
+  <div class="bar">
+    <span class="muted">Filter by Stage:</span>
+    <select id="stageSel">
+      <option value="create">Contact Created Date</option>
+      <option value='lead'>Entered "Lead"</option>
+      <option value='oppty'>Entered "Opportunity (Site Visit)"</option>
+      <option value='won'>Entered "Closed Won"</option>
+      <option value='lost'>Entered "Closed Lost"</option>
+    </select>
+
+    <span class="muted">Filter by Month:</span>
+    <select id="monthSel"><option value="all">All Months</option></select>
+
+    <span class="muted">Filter by Channel:</span>
+    <select id="channelSel"><option value="all">All Channels</option>
+      <option>Meta Ads</option><option>Google Ads</option><option>Bing Ads</option>
+      <option>Thumbtack</option><option>Boostmaps</option><option>Direct</option>
+    </select>
+    <span class="pill" id="fbCampaignPill" style="display:none;"></span>
+  </div>
+
+  <!-- Metric cards -->
+  <div class="grid">
+    <div class="card"><div class="big" id="leadsNum">0</div><div class="muted">Leads</div></div>
+    <div class="card"><div class="big" id="svNum">0</div><div class="muted">Site Visits</div></div>
+    <div class="card"><div class="big" id="svConv">0%</div><div class="muted">Site-Visit Conversion</div></div>
+    <div class="card"><div class="big" id="dealSize">$0</div><div class="muted">Total Deal Size</div></div>
+    <div class="card"><div class="big" id="closedNum">0</div><div class="muted">Closed Deals</div></div>
+    <div class="card"><div class="big" id="wonNum">0</div><div class="muted">Deals Won</div></div>
+    <div class="card"><div class="big" id="spend">$0</div><div class="muted">Total Spend</div></div>
+    <div class="card"><div class="big" id="cpl">$0</div><div class="muted">Avg Cost / Lead</div></div>
+    <div class="card"><div class="big" id="cpsv">$0</div><div class="muted">Avg Cost / Site Visit</div></div>
+  </div>
+
+  <!-- Charts -->
+  <div class="charts">
+    <canvas id="trend1" height="80"></canvas>
+    <canvas id="trend2" height="80"></canvas>
+    <canvas id="trend3" height="80"></canvas>
+  </div>
+
+  <!-- Detail table -->
+  <div class="table">
+    <table id="detailTbl">
+      <thead>
+        <tr>
+          <th>Month</th><th>Channel</th><th>Leads</th><th>Site Visits</th>
+          <th>Closed</th><th>Won</th><th>Spend</th><th>CPL</th><th>CPSV</th><th>Total Deal Size</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+</div>
+
+<script>
+const tz = "America/New_York";
+const { DateTime } = luxon;
+
+// Data holders
+let contacts=[], deals=[];
+let spend={Meta:[], Google:[], Bing:[], Thumbtack:[]};
+let datasets={}; // month x channel aggregation
+let monthOptions=new Set();
+
+// =========== Utilities ===========
+function parseCSV(file){ return new Promise((res,rej)=>{
+  Papa.parse(file,{header:true,skipEmptyLines:true,complete:r=>res(r.data),error:rej});
+});}
+function norm(s){ return (s??"").toString().trim(); }
+function lc(s){ return norm(s).toLowerCase(); }
+function money(n){ return "$"+(n||0).toLocaleString(undefined,{maximumFractionDigits:2}); }
+function pct(n){ return (n||0).toFixed(1)+"%"; }
+function monthKey(dtStr){
+  if(!dtStr) return null;
+  let dt = DateTime.fromISO(dtStr,{zone:tz});
+  if(!dt.isValid){ dt = DateTime.fromISO(dtStr.replace(" ","T"),{zone:tz}); }
+  if(!dt.isValid) return null;
+  return dt.toFormat("yyyy-LL");
+}
+function addMonthOption(mk){ if(mk){ monthOptions.add(mk); }}
+
+// Channel mapping — precedence & overrides per your spec
+function mapChannelFromContact(c){
+  const d1 = lc(c["Original Traffic Source Drill-Down 1"]);
+  const d2 = lc(c["Original Traffic Source Drill-Down 2"]);
+  const lsc = lc(c["Lead Source (Custom)"]);
+  if(lsc.includes("thumbtack")) return {channel:"Thumbtack", fbCampaign:null};
+  if(d1==="crm_ui") return {channel:"Direct", fbCampaign:null};
+  if(d1.includes("facebook")) return {channel:"Meta Ads", fbCampaign: d2 || null};
+  if(d1.includes("good guys pools search") || d1.includes("good guys pools - sales - search") || d1.includes("adwords") || d1.includes("unknown keywords")) return {channel:"Google Ads", fbCampaign:null};
+  if(d1.includes("boostmaps")) return {channel:"Boostmaps", fbCampaign:null};
+  if(d1.includes("bing")) return {channel:"Bing Ads", fbCampaign:null};
+  if(d1.includes("instagram")||d1.includes("ig")||d1.includes("fb")||d1.includes("meta")) return {channel:"Meta Ads", fbCampaign:d2||null};
+  if(d1) return {channel:"Direct", fbCampaign:null};
+  return {channel:"Direct", fbCampaign:null};
+}
+
+// Site visit rule (unique per contact per month)
+function dealIsSiteVisit(deal){
+  const stage = lc(deal["Deal Stage"]||deal["DEAL STAGE"]||deal["deal stage"]);
+  const amtRaw = deal["Amount"]||deal["AMOUNT"]||deal["amount"]||"0";
+  const amt = parseFloat(amtRaw.toString().replace(/[^0-9.\-]/g,""))||0;
+  const appt = stage.includes("appointment") && stage.includes("scheduled");
+  const tier = (stage.includes("quote") && stage.includes("provided")) || stage.includes("closed won") || stage.includes("closed lost");
+  return appt || (tier && amt>24000);
+}
+
+// Join precedence and *first* contact wins (no duplication)
+function matchDealToContact(deal, contactIndex){
+  const tryId = norm(deal["Contact ID"]);
+  if(tryId && contactIndex.byId.has(tryId)) return contactIndex.byId.get(tryId);
+  const tryEmail = lc(deal["Contact email"]);
+  if(tryEmail && contactIndex.byEmail.has(tryEmail)) return contactIndex.byEmail.get(tryEmail);
+  const tryName = lc(deal["Contact name"]);
+  if(tryName && contactIndex.byName.has(tryName)) return contactIndex.byName.get(tryName);
+  const ids = norm(deal["Associated Contact IDs"]).split(/[;,]/).map(s=>s.trim()).filter(Boolean);
+  for(const id of ids){ if(contactIndex.byId.has(id)) return contactIndex.byId.get(id); }
+  const emails = norm(deal["All Associated Contact Emails"]).split(/[;,]/).map(s=>lc(s)).filter(Boolean);
+  for(const em of emails){ if(contactIndex.byEmail.has(em)) return contactIndex.byEmail.get(em); }
+  const names = norm(deal["All Associated Contact Names"]).split(/[;,]/).map(s=>lc(s)).filter(Boolean);
+  for(const nm of names){ if(contactIndex.byName.has(nm)) return contactIndex.byName.get(nm); }
+  return null;
+}
+
+// Build contact index
+function buildContactIndex(contacts){
+  const idx={byId:new Map(), byEmail:new Map(), byName:new Map()};
+  contacts.forEach(c=>{
+    const id = norm(c["Record ID"]);
+    if(id) idx.byId.set(id,c);
+    const em = lc(c["Email"]);
+    if(em) idx.byEmail.set(em,c);
+    const nm = lc(norm(c["First Name"]) + " " + norm(c["Last Name"])).trim();
+    if(nm) idx.byName.set(nm,c);
+  });
+  return idx;
+}
+
+// Parse spend CSVs to month sums
+function monthSpendFromRows(rows, type){
+  const out = {};
+  rows.forEach(r=>{
+    let mk=null, amt=0;
+    if(type==="Meta"){ mk = monthKey(r["Reporting starts"]||r["Date"]||r["Start Date"]); amt = parseFloat((r["Amount spent (USD)"]||r["Amount"]||r["Spend"]||"0").toString().replace(/[^0-9.\-]/g,""))||0; }
+    if(type==="Google"){ mk = monthKey(r["Day"]||r["Date"]); amt = parseFloat((r["Billed cost"]||r["Cost"]||"0").toString().replace(/[^0-9.\-]/g,""))||0; }
+    if(type==="Bing"){ mk = monthKey(r["Date"]); amt = parseFloat((r["Spend"]||r["Cost"]||"0").toString().replace(/[^0-9.\-]/g,""))||0; }
+    if(type==="Thumbtack"){ mk = monthKey(r["date"]||r["Date"]); amt = parseFloat((r["amount_usd"]||r["Amount"]||"0").toString().replace(/[^0-9.\-]/g,""))||0; }
+    if(mk){ out[mk]=(out[mk]||0)+amt; }
+  });
+  return out;
+}
+
+// =========== Main processing ===========
+document.getElementById("processBtn").addEventListener("click", async ()=>{
+  const [fC,fD,fM,fG,fB,fT] = ["contactsCsv","dealsCsv","metaCsv","googleCsv","bingCsv","thumbtackCsv"].map(id=>document.getElementById(id).files[0]);
+  if(!fC || !fD){ alert("Upload Contacts and Deals CSVs first."); return; }
+  contacts = await parseCSV(fC); deals = await parseCSV(fD);
+  if(fM) spend.Meta = await parseCSV(fM); if(fG) spend.Google = await parseCSV(fG);
+  if(fB) spend.Bing = await parseCSV(fB); if(fT) spend.Thumbtack = await parseCSV(fT);
+  const cIndex = buildContactIndex(contacts);
+  const contactInfo = new Map();
+  contacts.forEach(c=>{
+    const id = norm(c["Record ID"]); if(!id) return;
+    const mk = monthKey(c["Create Date"]||c["Created Date"]||c["Date Created"]||c["Create date"]);
+    const {channel, fbCampaign} = mapChannelFromContact(c);
+    contactInfo.set(id,{
+      channel, fbCampaign,
+      createMonth: mk,
+      stageDates:{
+        lead: c['Date entered "Lead (Lifecycle Stage Pipeline)"'] || null,
+        oppty: c['Date entered "Opportunity (Site Visit) (Lifecycle Stage Pipeline)"'] || null,
+        won: c['Date entered "Customer (Lifecycle Stage Pipeline)"'] || c['Date entered "Closed Won"'] || null,
+        lost: c['Date entered "Lead Closed (Lifecycle Stage Pipeline)"'] || c['Date entered "Closed Lost"'] || null
+      }
+    });
+    addMonthOption(mk);
+  });
+  const perContact = new Map();
+  deals.forEach(d=>{
+    const c = matchDealToContact(d, cIndex); if(!c) return;
+    const cid = norm(c["Record ID"]); if(!cid || !contactInfo.has(cid)) return;
+    const contactCreateMonth = contactInfo.get(cid).createMonth;
+    if(contactCreateMonth){
+      const sv = dealIsSiteVisit(d);
+      if(sv){
+        if(!perContact.has(cid)) perContact.set(cid,{siteVisitByMonth:new Set(), totalDeal:0, closedByMonth:new Set(), wonByMonth:new Set()});
+        perContact.get(cid).siteVisitByMonth.add(contactCreateMonth);
+      }
+    }
+    const amtRaw = d["Amount"]||d["AMOUNT"]||d["amount"]||"0";
+    const amt = parseFloat(amtRaw.toString().replace(/[^0-9.\-]/g,""))||0;
+    if(!perContact.has(cid)) perContact.set(cid,{siteVisitByMonth:new Set(), totalDeal:0, closedByMonth:new Set(), wonByMonth:new Set()});
+    perContact.get(cid).totalDeal += amt;
+    const stage = lc(d["Deal Stage"]||d["DEAL STAGE"]||d["deal stage"]);
+    const isClosed = stage.includes("closed");
+    const isWon = stage.includes("closed won");
+    if(isClosed && contactCreateMonth) perContact.get(cid).closedByMonth.add(contactCreateMonth);
+    if(isWon && contactCreateMonth) perContact.get(cid).wonByMonth.add(contactCreateMonth);
+  });
+  const spendMonth = {
+    "Meta Ads": monthSpendFromRows(spend.Meta,"Meta"),
+    "Google Ads": monthSpendFromRows(spend.Google,"Google"),
+    "Bing Ads": monthSpendFromRows(spend.Bing,"Bing"),
+    "Thumbtack": monthSpendFromRows(spend.Thumbtack,"Thumbtack"),
+    "Boostmaps": {} // fixed below
+  };
+  datasets = {}; monthOptions.forEach(mk=>{
+    ["Meta Ads","Google Ads","Bing Ads","Thumbtack","Boostmaps","Direct"].forEach(ch=>{
+      if(!datasets[mk]) datasets[mk]={};
+      datasets[mk][ch] = {leads:0, sv:0, closed:0, won:0, spend:0, dealSize:0, fbCampaign:null};
+    });
+  });
+  contacts.forEach(c=>{
+    const cid = norm(c["Record ID"]); if(!cid) return;
+    const info = contactInfo.get(cid); if(!info) return;
+    const mk = info.createMonth; if(!mk || !datasets[mk]) return;
+    const ch = info.channel;
+    datasets[mk][ch].leads += 1;
+    if(perContact.has(cid)) datasets[mk][ch].dealSize += perContact.get(cid).totalDeal;
+    if(perContact.has(cid) && perContact.get(cid).siteVisitByMonth.has(mk)) datasets[mk][ch].sv += 1;
+    if(perContact.has(cid) && perContact.get(cid).closedByMonth.has(mk)) datasets[mk][ch].closed += 1;
+    if(perContact.has(cid) && perContact.get(cid).wonByMonth.has(mk)) datasets[mk][ch].won += 1;
+    if(ch==="Meta Ads" && info.fbCampaign) datasets[mk][ch].fbCampaign = info.fbCampaign;
+  });
+  Object.keys(datasets).forEach(mk=>{
+    Object.keys(datasets[mk]).forEach(ch=>{
+      let s=0;
+      if(ch==="Meta Ads") s = spendMonth["Meta Ads"][mk]||0;
+      if(ch==="Google Ads") s = spendMonth["Google Ads"][mk]||0;
+      if(ch==="Bing Ads") s = spendMonth["Bing Ads"][mk]||0;
+      if(ch==="Thumbtack") s = spendMonth["Thumbtack"][mk]||0;
+      if(ch==="Boostmaps") s = 900;
+      datasets[mk][ch].spend = s;
+    });
+  });
+  const monthSel = document.getElementById("monthSel");
+  monthSel.innerHTML = '<option value="all">All Months</option>';
+  [...monthOptions].sort().forEach(m=>{
+    const opt=document.createElement("option"); opt.value=m; opt.textContent=DateTime.fromFormat(m,"yyyy-LL").toFormat("LLLL yyyy"); monthSel.appendChild(opt);
+  });
+  document.getElementById("status").style.display="inline-block";
+  render();
+});
+
+// =========== Rendering ===========
+let ch1,ch2,ch3;
+function render(){
+  const stage = document.getElementById("stageSel").value;
+  const mk = document.getElementById("monthSel").value;
+  const channel = document.getElementById("channelSel").value;
+  let agg = {leads:0, sv:0, closed:0, won:0, spend:0, dealSize:0};
+  let rows=[];
+  const months = mk==="all" ? Object.keys(datasets).sort() : [mk];
+  months.forEach(m=>{
+    const channels = channel==="all" ? Object.keys(datasets[m]) : [channel];
+    channels.forEach(ch=>{
+      const d = datasets[m][ch];
+      const row = {
+        month:m, channel:ch, leads:d.leads, sv:d.sv, closed:d.closed, won:d.won,
+        spend:d.spend, cpl:d.leads?d.spend/d.leads:0, cpsv:d.sv?d.spend/d.sv:0,
+        dealSize:d.dealSize, fbCampaign:d.fbCampaign
+      };
+      rows.push(row);
+      agg.leads += row.leads; agg.sv += row.sv; agg.closed += row.closed; agg.won += row.won; agg.spend += row.spend; agg.dealSize += row.dealSize;
+      const pill=document.getElementById("fbCampaignPill");
+      if(ch==="Meta Ads" && row.fbCampaign && months.length===1 && channel!=="all"){
+        pill.style.display="inline-block"; pill.textContent="FB Campaign: "+row.fbCampaign;
+      } else if(pill){ pill.style.display="none"; }
+    });
+  });
+  document.getElementById("leadsNum").textContent = agg.leads.toLocaleString();
+  document.getElementById("svNum").textContent = agg.sv.toLocaleString();
+  const svConv = agg.leads ? (agg.sv/agg.leads*100) : 0;
+  document.getElementById("svConv").textContent = pct(svConv);
+  document.getElementById("dealSize").textContent = money(agg.dealSize);
+  document.getElementById("closedNum").textContent = agg.closed.toLocaleString();
+  document.getElementById("wonNum").textContent = agg.won.toLocaleString();
+  document.getElementById("spend").textContent = money(agg.spend);
+  document.getElementById("cpl").textContent = agg.leads? money(agg.spend/agg.leads) : "$0";
+  document.getElementById("cpsv").textContent = agg.sv? money(agg.spend/agg.sv) : "$0";
+  const tb = document.querySelector("#detailTbl tbody"); tb.innerHTML="";
+  rows.forEach(r=>{
+    const tr=document.createElement("tr");
+    const human=DateTime.fromFormat(r.month,"yyyy-LL").toFormat("LLLL yyyy");
+    tr.innerHTML=`<td>${human}</td><td>${r.channel}</td><td>${r.leads}</td><td>${r.sv}</td><td>${r.closed}</td><td>${r.won}</td>
+      <td>${money(r.spend)}</td><td>${r.leads?money(r.spend/r.leads):"$0"}</td><td>${r.sv?money(r.spend/r.sv):"$0"}</td><td>${money(r.dealSize)}</td>`;
+    tb.appendChild(tr);
+  });
+  const labels = months.map(m=>DateTime.fromFormat(m,"yyyy-LL").toFormat("LLL yy"));
+  const series = k=>months.map(m=>{
+    const d = channel==="all"
+      ? Object.values(datasets[m]).reduce((a,x)=>a+(x[k]||0),0)
+      : (datasets[m][channel]?.[k]||0);
+    return d;
+  });
+  const cfgLine = (ctx, lbl, arr, color="#7c5cff", yId="y")=>new Chart(ctx,{
+    type:"line", data:{labels, datasets:[{label:lbl, data:arr, tension:.3, borderColor:color, backgroundColor:color+"33"}]},
+    options:{responsive:true, scales:{[yId]:{beginAtZero:true}}}
+  });
+  if(ch1) ch1.destroy(); if(ch2) ch2.destroy(); if(ch3) ch3.destroy();
+  ch1 = cfgLine(document.getElementById("trend1"), "Leads / Site Visits", series("leads"), "#6a88f7");
+  ch1.data.datasets.push({label:"Site Visits", data:series("sv"), borderColor:"#16a34a", backgroundColor:"#16a34a33", tension:.3}); ch1.update();
+  ch2 = cfgLine(document.getElementById("trend2"), "Deal Size vs Spend ($)", series("dealSize"), "#fb923c");
+  ch2.data.datasets.push({label:"Spend", data:series("spend"), borderColor:"#ef4444", backgroundColor:"#ef444433", tension:.3}); ch2.update();
+  const cplSeries = months.map((m,i)=>{ const l = series("leads")[i]; const s = series("spend")[i]; return l? s/l : 0; });
+  const cpsvSeries = months.map((m,i)=>{ const sv = series("sv")[i]; const s = series("spend")[i]; return sv? s/sv : 0; });
+  ch3 = cfgLine(document.getElementById("trend3"), "Cost Metrics", cplSeries, "#7c5cff");
+  ch3.data.datasets.push({label:"CPSV", data:cpsvSeries, borderColor:"#10b981", backgroundColor:"#10b98133", tension:.3}); ch3.update();
+}
+document.getElementById("monthSel").addEventListener("change", render);
+document.getElementById("channelSel").addEventListener("change", render);
+document.getElementById("stageSel").addEventListener("change", render);
+
+// Highlight upload boxes when a file is selected
+document.querySelectorAll('.uploads input[type="file"]').forEach(input => {
+  input.addEventListener('change', () => {
+    const box = input.closest('.u');
+    if (box) {
+      box.classList.add('uploaded');
+    }
+  });
+});
+</script>
 </body>
 </html>
