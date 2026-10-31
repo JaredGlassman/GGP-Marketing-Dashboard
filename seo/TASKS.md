@@ -16,9 +16,9 @@ Maintained by Claude. Items need Jared or someone with account access. Claude em
 11. **Request re-indexing** in GSC for goodguyspools.com homepage + contact page (new address), then tap Sync in Bing Places.
 12. **Resolve the founding-date contradiction**: BBB says started 5/27/2025, Angi says 2020/2025, listings say "25+ years." Pick a true statement and use it everywhere.
 13. **Claim Apple Business Connect** (businessconnect.apple.com) with 238 West St, South Hackensack, NJ 07606, (201) 822-1189.
-14. **Fix remaining old-address listings**: Houzz ("Hackensack, NY" + Orchard St), Nextdoor, BuildZoom, Tydl, AquaticsConnect.
+14. **Fix remaining old-address listings**: Houzz ("Hackensack, NY" + Orchard St), Nextdoor, BuildZoom (also shows an old license 13VH14082500), Tydl, AquaticsConnect.
 15. **Connect Google Business Profile to Zapier** (https://mcp.zapier.com/api/v1/connect-auth/GoogleMyBusinessCLIAPI?accountId=21740689) and add Zapier tasks or upgrade the plan (quota is exhausted). Enables Claude to pull reviews verbatim, reply to reviews, and publish weekly GBP posts.
-16. **Fill the `[[GGP FILL]]` markers** in seo/content/ drafts and seo/schema/facts.json (pool types built, price ranges, warranty, timelines, founding year, author byline). Also confirm which NJ HIC number is active: 13VH13660100 (verified on Thumbtack) or 13VH14082500 (BuildZoom); drafts currently mix both.
+16. **Fill the `[[GGP FILL]]` markers** in seo/content/ drafts and seo/schema/facts.json (pool types built, price ranges, warranty, timelines, founding year, author byline). HIC confirmed as 13VH13660100.
 17. **Send Claude one real project update per week** (town, service, stage, 3 photos) for the GBP post + YouTube Short script.
 18. **Consider moving the Netlify project** from the Moodswing account to a Good Guys Pools-owned Netlify account.
 

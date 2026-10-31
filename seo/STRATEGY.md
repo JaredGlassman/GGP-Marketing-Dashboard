@@ -25,7 +25,7 @@
    | Houzz | ❌ Location shown as **"Hackensack, NY"** |
    | Thumbtack | ⚠ City correct (South Hackensack); confirm street. Top Pro, 4.7★/35. **Last 3 reviews (Jun–Jul 2026): 1★, 1★, 4★, all about not responding** |
    | HomeAdvisor / Angi | ⚠ Address correct (238 West St). 4.5★/17. **Two 1★ reviews from May 2026: one says a concrete pool was unfinished a year after signing with open permits, one cites delays/poor communication on a fiberglass refinish.** HomeAdvisor FAQ says **"does not offer warranties."** Angi pages show founding year as 2020 on one and 2025 on others |
-   | BuildZoom | ⚠ "Good Guys Pools LLC", Hackensack; licenses 13VH14082500 / 13VH13660100 |
+   | BuildZoom | ⚠ "Good Guys Pools LLC", Hackensack; licenses 13VH13660100 |
    | Trustpilot | ⚠ 4.1 TrustScore from 5 reviews (all 5★, spring 2025); stale |
    | Nextdoor, Tydl, AquaticsConnect, BuildZoom | ❌ Old "86 Orchard St, Hackensack" address |
 
@@ -46,7 +46,7 @@ Phone:    (201) 822-1189   (one tracking-free number everywhere)
 Email:    info@goodguyspools.com
 Website:  https://www.goodguyspools.com/
 Category: Swimming Pool Contractor (primary); Swimming Pool Repair Service; Pool Cleaning Service (only if offered)
-License:  NJ HIC 13VH14082500 / 13VH13660100   [[GGP FILL: confirm active on NJ DCA lookup]]
+License:  NJ HIC 13VH13660100   (owner-confirmed 2026-10-31; BuildZoom also shows an old 13VH14082500, ask them to remove it)
 Founded:  [[GGP FILL]]   Experience claim: **resolve before publishing.** Listings say "25+ years"; BBB says business start 5/27/2025 and Angi says 2020 or 2025. AI models flag this kind of contradiction. Use a true statement, e.g. "founded 20XX; our lead builder has 25 years of in-ground pool experience"
 Area:     NJ only — see seo/data/service-area-towns.json (133 towns, 13 counties)
 ```

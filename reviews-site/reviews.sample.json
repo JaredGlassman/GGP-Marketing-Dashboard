@@ -1,6 +1,6 @@
 {
   "_WARNING": "LAYOUT SAMPLE ONLY. These are placeholder entries, not real reviews. build.py --sample stamps every page with a SAMPLE banner and noindex. Never deploy this file.",
-  "business": {"name": "Good Guys Pools", "website": "https://www.goodguyspools.com/", "phone": "(201) 555-0100", "license": "NJ HIC #13VH14082500", "estimate_url": "https://www.goodguyspools.com/contact/"},
+  "business": {"name": "Good Guys Pools", "website": "https://www.goodguyspools.com/", "phone": "(201) 555-0100", "license": "NJ HIC #13VH13660100", "estimate_url": "https://www.goodguyspools.com/contact/"},
   "platform_totals": [
     {"platform": "Google", "rating": 4.9, "count": 100, "url": "#"},
     {"platform": "HomeAdvisor", "rating": 4.8, "count": 17, "url": "#"},

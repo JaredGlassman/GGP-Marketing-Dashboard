@@ -57,4 +57,4 @@ No. Work started before a permit can be stopped and fined, and you may have to u
 [[GGP FILL: Yes — we prepare and file permit applications for every build in NJ.]]
 
 ---
-*Written by [[author]], Good Guys Pools, Hackensack NJ. NJ HIC #13VH14082500. Rules change, so always confirm current requirements with your municipality.*
+*Written by [[author]], Good Guys Pools, Hackensack NJ. NJ HIC #13VH13660100. Rules change, so always confirm current requirements with your municipality.*
