@@ -17,16 +17,17 @@
    | Source | Status (canonical: 238 West St, South Hackensack, NJ 07606 · (201) 822-1189) |
    |---|---|
    | **goodguyspools.com (your own site)** | ❌ **Shows the OLD address, 86-110 Orchard Street, Hackensack. Fix first: directories and AIs copy the website.** Also shows a self-reported "Based on 30 reviews" widget |
-   | Google Business Profile | ✅ Correct (owner-confirmed) |
+   | Google Business Profile | ✅ Correct (owner-confirmed). Website widget says 30 Google reviews |
    | Bing Places | ✅ Claimed + verified 2026-10-31 (synced from Google), publishing in 7–12 days. Bing Webmaster Tools set up |
    | Apple Business Connect | ⏳ Not yet claimed |
-   | Yelp (`good-guys-hackensack-3`) | ❌ Listed as **"Closed"**, name "Good Guys", old address **86110 Orchard St**, 3.0★ / 2 reviews |
-   | BBB | ❌ Main phone is a **NY number (914) 629-1309**; (201) 822-1189 only listed as "Other". Check address |
+   | Yelp (`good-guys-hackensack-3`) | ✅ Owner reports fixed 2026-10-31 (was "Closed", old address). Verify once re-indexed |
+   | BBB | ✅ Owner reports fixed 2026-10-31 (was showing (914) number). Note: BBB lists business start **5/27/2025**, which conflicts with the "25+ years" claim used elsewhere; see §1 |
    | Houzz | ❌ Location shown as **"Hackensack, NY"** |
    | Thumbtack | ⚠ City correct (South Hackensack); confirm street. Top Pro, 4.7★/35. **Last 3 reviews (Jun–Jul 2026): 1★, 1★, 4★, all about not responding** |
-   | HomeAdvisor | ⚠ City correct (South Hackensack); confirm street |
+   | HomeAdvisor / Angi | ⚠ Address correct (238 West St). 4.5★/17. **Two 1★ reviews from May 2026: one says a concrete pool was unfinished a year after signing with open permits, one cites delays/poor communication on a fiberglass refinish.** HomeAdvisor FAQ says **"does not offer warranties."** Angi pages show founding year as 2020 on one and 2025 on others |
    | BuildZoom | ⚠ "Good Guys Pools LLC", Hackensack; licenses 13VH14082500 / 13VH13660100 |
-   | Other directories | ❌ Old Orchard St variants: "86 Orchard St", "86-110 Orchard St Ste 4C", "86110 Orchard St Unit C" |
+   | Trustpilot | ⚠ 4.1 TrustScore from 5 reviews (all 5★, spring 2025); stale |
+   | Nextdoor, Tydl, AquaticsConnect, BuildZoom | ❌ Old "86 Orchard St, Hackensack" address |
 
    When an LLM sees "Closed," "NY," and three addresses, it lowers its confidence and recommends whoever it has a cleaner picture of. **Fix this before any content work.** (Agent: `citation-nap-auditor`.)
 
@@ -46,7 +47,7 @@ Email:    info@goodguyspools.com
 Website:  https://www.goodguyspools.com/
 Category: Swimming Pool Contractor (primary); Swimming Pool Repair Service; Pool Cleaning Service (only if offered)
 License:  NJ HIC 13VH14082500 / 13VH13660100   [[GGP FILL: confirm active on NJ DCA lookup]]
-Founded:  [[GGP FILL]]   Experience claim: "25+ years" (from existing listings; confirm)
+Founded:  [[GGP FILL]]   Experience claim: **resolve before publishing.** Listings say "25+ years"; BBB says business start 5/27/2025 and Angi says 2020 or 2025. AI models flag this kind of contradiction. Use a true statement, e.g. "founded 20XX; our lead builder has 25 years of in-ground pool experience"
 Area:     NJ only — see seo/data/service-area-towns.json (133 towns, 13 counties)
 ```
 
@@ -119,6 +120,7 @@ Priority queue (from your top-performing paid keywords in "Google Keywords" shee
 - Respond to **every** review within 48h, mentioning service + town naturally.
 
 ## 5. Review engine (the biggest Map Pack lever)
+**Fix first, part 2: the two May 2026 HomeAdvisor 1★ reviews.** One describes an unfinished pool with open permits. Close out any open permits, resolve the job, and post a public, factual owner reply. An AI summarizing "recent reviews" will quote these until newer, better reviews outnumber them. Also: HomeAdvisor's FAQ says the company "does not offer warranties." If that is wrong, fix the HomeAdvisor profile. If it is right, it is a sales problem bigger than SEO.
 **Fix first: responsiveness.** The latest Thumbtack reviews are 1★/1★/4★ for slow or no follow-up. AI answers summarize *recent* sentiment, so a reputation for not calling back will be repeated to every homeowner who asks. Set a 1-business-hour response SLA on all lead sources (Thumbtack, GBP messages, web form, phone), route every lead to one inbox/CRM, and reply publicly to each negative review with an offline-resolution offer.
 
 - **Target velocity:** 6–10 new Google reviews/month, steady. Spikes look like manipulation.
