@@ -151,6 +151,11 @@ def main():
     data = json.loads(SRC.read_text())
     validate(data)
     DIST.mkdir(exist_ok=True)
+    # static files (search-engine verification, favicon, etc.) copied as-is
+    import shutil
+    for f in (HERE / "public").glob("*"):
+        if f.is_file():
+            shutil.copy(f, DIST / f.name)
     (DIST / "index.html").write_text(page(data))
     noindex = SAMPLE or not any(r["rating"] == 5 for r in data["reviews"])
     (DIST / "robots.txt").write_text("User-agent: *\n" + ("Disallow: /\n" if noindex else f"Allow: /\nSitemap: {SITE}sitemap.xml\n"))
