@@ -1,0 +1,16 @@
+{
+  "business": {
+    "name": "Good Guys Pools",
+    "website": "https://goodguyspools.com/",
+    "phone": "[[GGP FILL]]",
+    "license": "NJ HIC #13VH14082500",
+    "estimate_url": "https://goodguyspools.com/contact/"
+  },
+  "platform_totals": [
+    {"platform": "Google", "rating": null, "count": null, "url": "[[GGP FILL: Google review URL]]"},
+    {"platform": "HomeAdvisor", "rating": null, "count": 17, "url": "https://www.homeadvisor.com/rated.GoodGuysPools.155340836.html"},
+    {"platform": "Houzz", "rating": 5.0, "count": 2, "url": "https://www.houzz.com/professionals/swimming-pool-builders/good-guys-pools-pfvwus-pf~1767010907"},
+    {"platform": "Trustpilot", "rating": null, "count": null, "url": "https://www.trustpilot.com/review/goodguyspools.com"}
+  ],
+  "reviews": []
+}

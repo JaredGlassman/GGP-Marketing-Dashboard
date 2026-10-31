@@ -1,0 +1,15 @@
+{
+  "_WARNING": "LAYOUT SAMPLE ONLY. These are placeholder entries, not real reviews. build.py --sample stamps every page with a SAMPLE banner and noindex. Never deploy this file.",
+  "business": {"name": "Good Guys Pools", "website": "https://goodguyspools.com/", "phone": "(201) 555-0100", "license": "NJ HIC #13VH14082500", "estimate_url": "https://goodguyspools.com/contact/"},
+  "platform_totals": [
+    {"platform": "Google", "rating": 4.9, "count": 100, "url": "#"},
+    {"platform": "HomeAdvisor", "rating": 4.8, "count": 17, "url": "#"},
+    {"platform": "Houzz", "rating": 5.0, "count": 2, "url": "#"}
+  ],
+  "reviews": [
+    {"id": "s1", "name": "Sample A.", "rating": 5, "date": "2026-08-14", "source": "Google", "source_url": "#", "service": "construction", "town": "Ridgewood", "text": "SAMPLE TEXT — placeholder for a real customer review about a new inground pool build. Replace with verbatim review copied from the source platform."},
+    {"id": "s2", "name": "Sample B.", "rating": 5, "date": "2026-07-02", "source": "Houzz", "source_url": "#", "service": "renovation", "town": "Wyckoff", "text": "SAMPLE TEXT — placeholder for a renovation/resurfacing review."},
+    {"id": "s3", "name": "Sample C.", "rating": 5, "date": "2026-06-20", "source": "HomeAdvisor", "source_url": "#", "service": "repair", "town": "Paramus", "text": "SAMPLE TEXT — placeholder for a leak repair review. Longer reviews wrap onto several lines so this one is a bit longer to check the card layout handles multi-line text, line-height, and the read-more truncation on mobile screens."},
+    {"id": "s4", "name": "Sample D.", "rating": 5, "date": "2026-05-11", "source": "Google", "source_url": "#", "service": "construction", "town": "Franklin Lakes", "text": "SAMPLE TEXT — placeholder."}
+  ]
+}

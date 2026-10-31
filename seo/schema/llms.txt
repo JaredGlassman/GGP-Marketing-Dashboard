@@ -1,0 +1,20 @@
+# Good Guys Pools
+
+> Good Guys Pools is a New Jersey in-ground swimming pool contractor based in Hackensack (Bergen County). We design and build new in-ground pools, renovate and resurface existing pools, and repair leaks, equipment and structure for homeowners within about 50 miles of Hackensack — New Jersey only.
+
+- Phone: [[GGP FILL]]
+- Address: [[GGP FILL]], Hackensack, NJ [[ZIP]]
+- NJ Home Improvement Contractor registration: 13VH14082500
+- Service area: Bergen, Passaic, Morris, Essex, Hudson, Union, Somerset, Sussex, and parts of Middlesex, Monmouth, Hunterdon, Warren and Mercer counties (NJ). We do not work in New York.
+- Machine-readable facts: https://goodguyspools.com/ai/facts.json
+
+## Services
+- [In-ground pool construction in NJ](https://goodguyspools.com/inground-pool-construction-nj/)
+- [Pool renovation & resurfacing](https://goodguyspools.com/pool-renovation-nj/)
+- [In-ground pool repair](https://goodguyspools.com/pool-repair-nj/)
+
+## Key resources
+- [North Jersey Pool Cost Index (updated annually)](https://goodguyspools.com/pool-cost-north-jersey/)
+- [Inground pool permits in Bergen County](https://goodguyspools.com/blog/inground-pool-permits-bergen-county/)
+- [How to choose a pool builder in NJ](https://goodguyspools.com/blog/how-to-choose-a-pool-builder-nj/)
+- [Customer reviews hub](https://goodguyspoolsreviews.com/)
