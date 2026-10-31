@@ -4,20 +4,23 @@ Maintained by Claude. Items need Jared or someone with account access. Claude em
 
 ## Open (ordered by impact)
 1. **Reply publicly to the two May 2026 HomeAdvisor 1★ reviews** (unfinished concrete pool with open permits; fiberglass refinish delays). Resolve the jobs, close permits, post factual owner replies. Recent negatives are what AI answers quote.
-2. **Fix HomeAdvisor FAQ: "does not offer warranties."** Correct the profile if wrong; if true, decide on a warranty before more marketing spend.
-3. **Set a 1-business-hour lead-response rule** across Thumbtack, GBP messages, website form, phone. The last three Thumbtack reviews (1★/1★/4★) are all about no follow-up.
-4. **Send Claude the Google reviews** (screenshots from the GBP app, or Google Takeout export) so goodguyspoolsreviews.com has more than 3 reviews.
-5. **Unblock Claude's web access** (laptop): claude.ai/code → Settings → Environments → this environment → Network access → Full. Then start a new session. This lets Claude pull reviews and verify listings directly.
-6. **Google Search Console for goodguyspoolsreviews.com**: add property, verify via DNS TXT in Namecheap, submit sitemap.xml. Then Bing Webmaster "Import from GSC."
-7. **Add a "Read our reviews" footer link** on goodguyspools.com → https://goodguyspoolsreviews.com.
-8. **Request re-indexing** in GSC for goodguyspools.com homepage + contact page (new address), then tap Sync in Bing Places.
-9. **Resolve the founding-date contradiction**: BBB says started 5/27/2025, Angi says 2020/2025, listings say "25+ years." Pick a true statement and use it everywhere.
-10. **Claim Apple Business Connect** (businessconnect.apple.com) with 238 West St, South Hackensack, NJ 07606, (201) 822-1189.
-11. **Fix remaining old-address listings**: Houzz ("Hackensack, NY" + Orchard St), Nextdoor, BuildZoom, Tydl, AquaticsConnect.
-12. **Connect Google Business Profile to Zapier** (https://mcp.zapier.com/api/v1/connect-auth/GoogleMyBusinessCLIAPI?accountId=21740689) and add Zapier tasks or upgrade the plan (quota is exhausted). Enables Claude to pull reviews verbatim, reply to reviews, and publish weekly GBP posts.
-13. **Fill the `[[GGP FILL]]` markers** in seo/content/ drafts and seo/schema/facts.json (pool types built, price ranges, warranty, timelines, founding year, author byline).
-14. **Send Claude one real project update per week** (town, service, stage, 3 photos) for the GBP post + YouTube Short script.
-15. **Consider moving the Netlify project** from the Moodswing account to a Good Guys Pools-owned Netlify account.
+2. **Fix HomeAdvisor/Angi profile** (call HomeAdvisor): merge the two duplicate profiles (5.0/14 and 4.6/19), change categories to In-Ground Pool Build + Remodel (currently Enclosures/Heaters/Covers), set service area to Bergen/Passaic/Morris/Essex, correct "1 year of experience / since 2025" only if inaccurate, and fix the "does not offer warranties" FAQ.
+3. **Merge the duplicate Thumbtack profile** listed under Elizabeth, NJ (5.0/30) into the South Hackensack one (4.7/35).
+4. **Create free profiles with canonical NAP + town-tagged project photos** on: Architect Magazine pro directory, HomeGuide, Patch business listing. These three pages surfaced in 9, 7 and 9 of the 14 baseline AI searches; competitors win because of them.
+5. **Ask the 30 Thumbtack reviewers (and recent customers) for a Google review** that mentions their town and the work done. Target 6–10 per month, steady.
+6. **Set a 1-business-hour lead-response rule** across Thumbtack, GBP messages, website form, phone. The last three Thumbtack reviews (1★/1★/4★) are all about no follow-up.
+7. **Send Claude the Google reviews** (screenshots from the GBP app, or Google Takeout export) so goodguyspoolsreviews.com has more than 3 reviews.
+8. **Unblock Claude's web access** (laptop): claude.ai/code → Settings → Environments → this environment → Network access → Full. Then start a new session. This lets Claude pull reviews and verify listings directly.
+9. **Google Search Console for goodguyspoolsreviews.com**: add property, verify via DNS TXT in Namecheap, submit sitemap.xml. Then Bing Webmaster "Import from GSC."
+10. **Add a "Read our reviews" footer link** on goodguyspools.com → https://goodguyspoolsreviews.com.
+11. **Request re-indexing** in GSC for goodguyspools.com homepage + contact page (new address), then tap Sync in Bing Places.
+12. **Resolve the founding-date contradiction**: BBB says started 5/27/2025, Angi says 2020/2025, listings say "25+ years." Pick a true statement and use it everywhere.
+13. **Claim Apple Business Connect** (businessconnect.apple.com) with 238 West St, South Hackensack, NJ 07606, (201) 822-1189.
+14. **Fix remaining old-address listings**: Houzz ("Hackensack, NY" + Orchard St), Nextdoor, BuildZoom, Tydl, AquaticsConnect.
+15. **Connect Google Business Profile to Zapier** (https://mcp.zapier.com/api/v1/connect-auth/GoogleMyBusinessCLIAPI?accountId=21740689) and add Zapier tasks or upgrade the plan (quota is exhausted). Enables Claude to pull reviews verbatim, reply to reviews, and publish weekly GBP posts.
+16. **Fill the `[[GGP FILL]]` markers** in seo/content/ drafts and seo/schema/facts.json (pool types built, price ranges, warranty, timelines, founding year, author byline).
+17. **Send Claude one real project update per week** (town, service, stage, 3 photos) for the GBP post + YouTube Short script.
+18. **Consider moving the Netlify project** from the Moodswing account to a Good Guys Pools-owned Netlify account.
 
 ## Done
 - 2026-10-31 Bing Places claimed + verified (synced from Google); Bing Webmaster Tools set up
