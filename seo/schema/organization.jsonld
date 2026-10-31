@@ -7,13 +7,13 @@
   "@id": "https://goodguyspools.com/#business",
   "name": "Good Guys Pools",
   "url": "https://goodguyspools.com/",
-  "telephone": "[[GGP FILL: +1-201-xxx-xxxx]]",
+  "telephone": "+1-201-822-1189",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "[[GGP FILL]]",
+    "streetAddress": "86-110 Orchard Street",
     "addressLocality": "Hackensack",
     "addressRegion": "NJ",
-    "postalCode": "[[GGP FILL]]",
+    "postalCode": "07601",
     "addressCountry": "US"
   },
   "geo": {
@@ -156,15 +156,19 @@
     }
   },
   "sameAs": [
-    "[[GGP FILL: Google Business Profile URL / CID]]",
     "https://www.houzz.com/professionals/swimming-pool-builders/good-guys-pools-pfvwus-pf~1767010907",
     "https://www.homeadvisor.com/rated.GoodGuysPools.155340836.html",
     "https://www.trustpilot.com/review/goodguyspools.com",
     "https://www.buildzoom.com/contractor/good-guys-pools-llc",
-    "[[GGP FILL: Yelp URL after fix]]",
-    "[[GGP FILL: Facebook]]",
-    "[[GGP FILL: Instagram]]",
-    "[[GGP FILL: YouTube]]",
-    "https://goodguyspoolsreviews.com/"
+    "https://goodguyspoolsreviews.com/",
+    "https://www.bbb.org/us/nj/hackensack/profile/construction/good-guys-pools-0221-90240700"
+  ],
+  "email": "info@goodguyspools.com",
+  "_todo_sameAs": [
+    "Google Business Profile URL",
+    "Yelp URL (after fix)",
+    "Facebook",
+    "Instagram",
+    "YouTube"
   ]
 }

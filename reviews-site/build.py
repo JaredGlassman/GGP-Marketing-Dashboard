@@ -11,7 +11,7 @@ SRC = HERE / ("reviews.sample.json" if SAMPLE else "reviews.json")
 DIST = HERE / "dist"
 SITE = "https://goodguyspoolsreviews.com/"
 SERVICES = {"construction": "New pool", "renovation": "Renovation", "repair": "Repair", "service": "Service"}
-SOURCES = {"Google", "Houzz", "HomeAdvisor", "Yelp", "Facebook", "Trustpilot", "Angi", "BBB", "direct"}
+SOURCES = {"Google", "Houzz", "HomeAdvisor", "Yelp", "Facebook", "Trustpilot", "Thumbtack", "Angi", "BBB", "direct"}
 
 e = html.escape
 

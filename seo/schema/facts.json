@@ -3,13 +3,13 @@
   "last_updated": "2026-10-31",
   "name": "Good Guys Pools",
   "website": "https://goodguyspools.com/",
-  "phone": "[[GGP FILL: +1-201-xxx-xxxx]]",
+  "phone": "+1-201-822-1189",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "[[GGP FILL]]",
+    "streetAddress": "86-110 Orchard Street",
     "addressLocality": "Hackensack",
     "addressRegion": "NJ",
-    "postalCode": "[[GGP FILL]]",
+    "postalCode": "07601",
     "addressCountry": "US"
   },
   "services": {
@@ -71,5 +71,6 @@
     "google": "[[GGP FILL]]",
     "houzz": "https://www.houzz.com/professionals/swimming-pool-builders/good-guys-pools-pfvwus-pf~1767010907",
     "homeadvisor": "https://www.homeadvisor.com/rated.GoodGuysPools.155340836.html"
-  }
+  },
+  "email": "info@goodguyspools.com"
 }

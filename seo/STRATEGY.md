@@ -16,7 +16,10 @@
 2. **Your citations are currently broken, and that is the #1 thing holding back AI answers.** From public listings found during the audit (Oct 31, 2026):
    | Source | Problem found |
    |---|---|
-   | Yelp (`good-guys-hackensack-3`) | Listed as **"Closed"**, name "Good Guys", address shown as **86110 Orchard St**, 3.0★ / 2 reviews |
+   | Yelp (`good-guys-hackensack-3`) | Listed as **"Closed"**, name "Good Guys", address mangled to **86110 Orchard St** (hyphen dropped from 86-110), 3.0★ / 2 reviews |
+| BBB | Main phone is a **NY number (914) 629-1309**; (201) 822-1189 only listed as "Other" |
+| Thumbtack | Location **"South Hackensack, NJ"**; Top Pro, 4.7★/35. **Last 3 reviews (Jun–Jul 2026): 1★, 1★, 4★, all about not responding/following up** |
+| Other directories | Address variants: "86 Orchard St", "86-110 Orchard St Ste 4C", "86110 Orchard St Unit C" |
    | Houzz | Location shown as **"Hackensack, NY"** |
    | HomeAdvisor | **"South Hackensack, NJ"** |
    | Website | "Based on 30 reviews" (self-reported widget) |
@@ -34,8 +37,9 @@ Every listing, schema block, llms.txt and press mention must match **character f
 
 ```
 Name:     Good Guys Pools                 [[GGP FILL: confirm whether "LLC" is used publicly]]
-Address:  [[GGP FILL: exact street, e.g. 86 Orchard St]], Hackensack, NJ [[ZIP]]
-Phone:    [[GGP FILL: (201) xxx-xxxx]]   (one tracking-free number everywhere)
+Address:  86-110 Orchard Street, Hackensack, NJ 07601   (as on goodguyspools.com; confirm suite matches Google Maps exactly)
+Phone:    (201) 822-1189   (one tracking-free number everywhere)
+Email:    info@goodguyspools.com
 Website:  https://goodguyspools.com/
 Category: Swimming Pool Contractor (primary); Swimming Pool Repair Service; Pool Cleaning Service (only if offered)
 License:  NJ HIC 13VH14082500 / 13VH13660100   [[GGP FILL: confirm active on NJ DCA lookup]]
@@ -112,6 +116,8 @@ Priority queue (from your top-performing paid keywords in "Google Keywords" shee
 - Respond to **every** review within 48h, mentioning service + town naturally.
 
 ## 5. Review engine (the biggest Map Pack lever)
+**Fix first: responsiveness.** The latest Thumbtack reviews are 1★/1★/4★ for slow or no follow-up. AI answers summarize *recent* sentiment, so a reputation for not calling back will be repeated to every homeowner who asks. Set a 1-business-hour response SLA on all lead sources (Thumbtack, GBP messages, web form, phone), route every lead to one inbox/CRM, and reply publicly to each negative review with an offline-resolution offer.
+
 - **Target velocity:** 6–10 new Google reviews/month, steady. Spikes look like manipulation.
 - **Ask everyone, not just happy customers.** Selective asking ("review gating") violates Google policy and the FTC rule.
 - **Ask at three moments:** dig day, water fill, first swim.

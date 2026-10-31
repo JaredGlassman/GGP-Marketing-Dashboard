@@ -2,15 +2,72 @@
   "business": {
     "name": "Good Guys Pools",
     "website": "https://goodguyspools.com/",
-    "phone": "[[GGP FILL]]",
+    "phone": "(201) 822-1189",
     "license": "NJ HIC #13VH14082500",
     "estimate_url": "https://goodguyspools.com/contact/"
   },
   "platform_totals": [
-    {"platform": "Google", "rating": null, "count": null, "url": "[[GGP FILL: Google review URL]]"},
-    {"platform": "HomeAdvisor", "rating": null, "count": 17, "url": "https://www.homeadvisor.com/rated.GoodGuysPools.155340836.html"},
-    {"platform": "Houzz", "rating": 5.0, "count": 2, "url": "https://www.houzz.com/professionals/swimming-pool-builders/good-guys-pools-pfvwus-pf~1767010907"},
-    {"platform": "Trustpilot", "rating": null, "count": null, "url": "https://www.trustpilot.com/review/goodguyspools.com"}
+    {
+      "platform": "Google",
+      "rating": null,
+      "count": null,
+      "url": "[[GGP FILL: Google review URL]]"
+    },
+    {
+      "platform": "Thumbtack",
+      "rating": 4.7,
+      "count": 35,
+      "url": "https://www.thumbtack.com/nj/south-hackensack/pool-builders/good-guys-pools/service/550772785116905480?category_pk=195544051569639934&project_pk=594265937542963203&search_form_pk=544660501983166466&search_query=195544051569639934&utm_medium=partnership&utm_source=cma-anthropic&utm_tt_session=1d347c15535765d6ef59acc9e99aeecbf22521b268f2ca1d78843b0b5f4ff494&zip_code=07601"
+    },
+    {
+      "platform": "HomeAdvisor",
+      "rating": null,
+      "count": 17,
+      "url": "https://www.homeadvisor.com/rated.GoodGuysPools.155340836.html"
+    },
+    {
+      "platform": "Houzz",
+      "rating": 5.0,
+      "count": 2,
+      "url": "https://www.houzz.com/professionals/swimming-pool-builders/good-guys-pools-pfvwus-pf~1767010907"
+    },
+    {
+      "platform": "Trustpilot",
+      "rating": null,
+      "count": null,
+      "url": "https://www.trustpilot.com/review/goodguyspools.com"
+    }
   ],
-  "reviews": []
+  "reviews": [
+    {
+      "id": "tt-2025-10-17-mf",
+      "name": "MIke F.",
+      "rating": 5,
+      "date": "2025-10-17",
+      "source": "Thumbtack",
+      "source_url": "https://www.thumbtack.com/nj/south-hackensack/pool-builders/good-guys-pools/service/550772785116905480?category_pk=195544051569639934&project_pk=594265937542963203&search_form_pk=544660501983166466&search_query=195544051569639934&utm_medium=partnership&utm_source=cma-anthropic&utm_tt_session=1d347c15535765d6ef59acc9e99aeecbf22521b268f2ca1d78843b0b5f4ff494&zip_code=07601",
+      "service": "repair",
+      "text": "The guys came out and addressed the problem promptly. Did a great job."
+    },
+    {
+      "id": "tt-2025-08-13-mc",
+      "name": "Marco C.",
+      "rating": 5,
+      "date": "2025-08-13",
+      "source": "Thumbtack",
+      "source_url": "https://www.thumbtack.com/nj/south-hackensack/pool-builders/good-guys-pools/service/550772785116905480?category_pk=195544051569639934&project_pk=594265937542963203&search_form_pk=544660501983166466&search_query=195544051569639934&utm_medium=partnership&utm_source=cma-anthropic&utm_tt_session=1d347c15535765d6ef59acc9e99aeecbf22521b268f2ca1d78843b0b5f4ff494&zip_code=07601",
+      "service": "repair",
+      "text": "These guys were awesome. They came and fixed it. They were nice and professional. And they were punctual."
+    },
+    {
+      "id": "tt-2025-08-01-ps",
+      "name": "Pamela S.",
+      "rating": 5,
+      "date": "2025-08-01",
+      "source": "Thumbtack",
+      "source_url": "https://www.thumbtack.com/nj/south-hackensack/pool-builders/good-guys-pools/service/550772785116905480?category_pk=195544051569639934&project_pk=594265937542963203&search_form_pk=544660501983166466&search_query=195544051569639934&utm_medium=partnership&utm_source=cma-anthropic&utm_tt_session=1d347c15535765d6ef59acc9e99aeecbf22521b268f2ca1d78843b0b5f4ff494&zip_code=07601",
+      "service": "service",
+      "text": "This is the best pool service I have experienced since building my pool in-ground pool in 2003. They are committed to making your pool look perfect and talk you through the process. Joseph was excellent!"
+    }
+  ]
 }
