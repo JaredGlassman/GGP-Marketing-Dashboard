@@ -4,24 +4,19 @@
     "HomeAndConstructionBusiness",
     "LocalBusiness"
   ],
-  "@id": "https://goodguyspools.com/#business",
+  "@id": "https://www.goodguyspools.com/#business",
   "name": "Good Guys Pools",
-  "url": "https://goodguyspools.com/",
+  "url": "https://www.goodguyspools.com/",
   "telephone": "+1-201-822-1189",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "86-110 Orchard Street",
-    "addressLocality": "Hackensack",
+    "streetAddress": "238 West St",
+    "addressLocality": "South Hackensack",
     "addressRegion": "NJ",
-    "postalCode": "07601",
+    "postalCode": "07606",
     "addressCountry": "US"
   },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 40.8859,
-    "longitude": -74.0435
-  },
-  "description": "Good Guys Pools builds, renovates and repairs in-ground swimming pools for homeowners in northern and central New Jersey, within about 50 miles of Hackensack.",
+  "description": "Good Guys Pools builds, renovates and repairs in-ground swimming pools for homeowners in northern and central New Jersey, within about 50 miles of South Hackensack (Bergen County).",
   "knowsAbout": [
     "in-ground pool construction",
     "gunite pools",
@@ -148,7 +143,7 @@
     "name": "Book a pool consultation or estimate",
     "target": {
       "@type": "EntryPoint",
-      "urlTemplate": "https://goodguyspools.com/contact/",
+      "urlTemplate": "https://www.goodguyspools.com/contact/",
       "actionPlatform": [
         "https://schema.org/DesktopWebPlatform",
         "https://schema.org/MobileWebPlatform"
@@ -170,5 +165,6 @@
     "Facebook",
     "Instagram",
     "YouTube"
-  ]
+  ],
+  "_todo_geo": "Add exact latitude/longitude from the Google Maps pin for 238 West St"
 }

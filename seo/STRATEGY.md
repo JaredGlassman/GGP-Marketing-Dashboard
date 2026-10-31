@@ -14,16 +14,19 @@
    - **AI answers:** these are *entity + consensus* games, not proximity games. This is where GGP can win the entire 50 miles, and where competitors are not playing yet. **This is the main bet.**
 
 2. **Your citations are currently broken, and that is the #1 thing holding back AI answers.** From public listings found during the audit (Oct 31, 2026):
-   | Source | Problem found |
+   | Source | Status (canonical: 238 West St, South Hackensack, NJ 07606 · (201) 822-1189) |
    |---|---|
-   | Yelp (`good-guys-hackensack-3`) | Listed as **"Closed"**, name "Good Guys", address mangled to **86110 Orchard St** (hyphen dropped from 86-110), 3.0★ / 2 reviews |
-| BBB | Main phone is a **NY number (914) 629-1309**; (201) 822-1189 only listed as "Other" |
-| Thumbtack | Location **"South Hackensack, NJ"**; Top Pro, 4.7★/35. **Last 3 reviews (Jun–Jul 2026): 1★, 1★, 4★, all about not responding/following up** |
-| Other directories | Address variants: "86 Orchard St", "86-110 Orchard St Ste 4C", "86110 Orchard St Unit C" |
-   | Houzz | Location shown as **"Hackensack, NY"** |
-   | HomeAdvisor | **"South Hackensack, NJ"** |
-   | Website | "Based on 30 reviews" (self-reported widget) |
-   | BuildZoom | "Good Guys Pools LLC", Hackensack, licenses 13VH14082500 / 13VH13660100 |
+   | **goodguyspools.com (your own site)** | ❌ **Shows the OLD address, 86-110 Orchard Street, Hackensack. Fix first: directories and AIs copy the website.** Also shows a self-reported "Based on 30 reviews" widget |
+   | Google Business Profile | ✅ Correct (owner-confirmed) |
+   | Bing Places | ✅ Claimed + verified 2026-10-31 (synced from Google), publishing in 7–12 days. Bing Webmaster Tools set up |
+   | Apple Business Connect | ⏳ Not yet claimed |
+   | Yelp (`good-guys-hackensack-3`) | ❌ Listed as **"Closed"**, name "Good Guys", old address **86110 Orchard St**, 3.0★ / 2 reviews |
+   | BBB | ❌ Main phone is a **NY number (914) 629-1309**; (201) 822-1189 only listed as "Other". Check address |
+   | Houzz | ❌ Location shown as **"Hackensack, NY"** |
+   | Thumbtack | ⚠ City correct (South Hackensack); confirm street. Top Pro, 4.7★/35. **Last 3 reviews (Jun–Jul 2026): 1★, 1★, 4★, all about not responding** |
+   | HomeAdvisor | ⚠ City correct (South Hackensack); confirm street |
+   | BuildZoom | ⚠ "Good Guys Pools LLC", Hackensack; licenses 13VH14082500 / 13VH13660100 |
+   | Other directories | ❌ Old Orchard St variants: "86 Orchard St", "86-110 Orchard St Ste 4C", "86110 Orchard St Unit C" |
 
    When an LLM sees "Closed," "NY," and three addresses, it lowers its confidence and recommends whoever it has a cleaner picture of. **Fix this before any content work.** (Agent: `citation-nap-auditor`.)
 
@@ -37,10 +40,10 @@ Every listing, schema block, llms.txt and press mention must match **character f
 
 ```
 Name:     Good Guys Pools                 [[GGP FILL: confirm whether "LLC" is used publicly]]
-Address:  86-110 Orchard Street, Hackensack, NJ 07601   (as on goodguyspools.com; confirm suite matches Google Maps exactly)
+Address:  238 West St, South Hackensack, NJ 07606   (matches Google Business Profile + Bing Places, confirmed by owner 2026-10-31)
 Phone:    (201) 822-1189   (one tracking-free number everywhere)
 Email:    info@goodguyspools.com
-Website:  https://goodguyspools.com/
+Website:  https://www.goodguyspools.com/
 Category: Swimming Pool Contractor (primary); Swimming Pool Repair Service; Pool Cleaning Service (only if offered)
 License:  NJ HIC 13VH14082500 / 13VH13660100   [[GGP FILL: confirm active on NJ DCA lookup]]
 Founded:  [[GGP FILL]]   Experience claim: "25+ years" (from existing listings; confirm)

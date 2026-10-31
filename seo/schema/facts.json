@@ -1,15 +1,15 @@
 {
-  "_purpose": "Canonical, machine-readable facts for AI assistants and crawlers. Serve at https://goodguyspools.com/ai/facts.json. Update 'last_updated' on every change.",
+  "_purpose": "Canonical, machine-readable facts for AI assistants and crawlers. Serve at https://www.goodguyspools.com/ai/facts.json. Update 'last_updated' on every change.",
   "last_updated": "2026-10-31",
   "name": "Good Guys Pools",
-  "website": "https://goodguyspools.com/",
+  "website": "https://www.goodguyspools.com/",
   "phone": "+1-201-822-1189",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "86-110 Orchard Street",
-    "addressLocality": "Hackensack",
+    "streetAddress": "238 West St",
+    "addressLocality": "South Hackensack",
     "addressRegion": "NJ",
-    "postalCode": "07601",
+    "postalCode": "07606",
     "addressCountry": "US"
   },
   "services": {
@@ -47,7 +47,7 @@
       "Union",
       "Warren"
     ],
-    "towns_url": "https://goodguyspools.com/service-area/"
+    "towns_url": "https://www.goodguyspools.com/service-area/"
   },
   "licensing": {
     "nj_hic": [
@@ -58,14 +58,14 @@
   },
   "experience": "[[GGP FILL: confirm '25+ years' claim and founding year]]",
   "pricing_ranges_usd": {
-    "source": "https://goodguyspools.com/pool-cost-north-jersey/",
+    "source": "https://www.goodguyspools.com/pool-cost-north-jersey/",
     "new_gunite_pool": "[[GGP FILL]]",
     "new_vinyl_pool": "[[GGP FILL]]",
     "resurfacing": "[[GGP FILL]]"
   },
   "warranty": "[[GGP FILL]]",
   "typical_build_timeline_weeks": "[[GGP FILL]]",
-  "booking": "https://goodguyspools.com/contact/",
+  "booking": "https://www.goodguyspools.com/contact/",
   "reviews": {
     "hub": "https://goodguyspoolsreviews.com/",
     "google": "[[GGP FILL]]",

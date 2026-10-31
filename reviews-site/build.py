@@ -134,7 +134,7 @@ footer.site{{border-top:1px solid var(--line);padding:24px 0 40px;font-size:13px
 {f'<section class="towns"><h2>Reviews by town</h2><ul>{town_list}</ul></section>' if towns else ''}
 <section class="cta"><div><h2>Planning a pool in New Jersey?</h2><p>Free estimates for inground pool construction, renovation and repair. {e(b['license'])}</p></div>
 <a class="btn" href="{e(b['estimate_url'])}">Get an estimate</a></section>
-<footer class="site">© {e(b['name'])}, Hackensack, NJ · <a href="{e(b['website'])}">{e(b['website'])}</a> · {e(b['license'])}<br>
+<footer class="site">© {e(b['name'])}, South Hackensack, NJ · <a href="{e(b['website'])}">{e(b['website'])}</a> · {e(b['license'])}<br>
 Each review is shown with its source and date. Platform totals above include all ratings, not only five-star reviews. This page shows five-star reviews only, so read every review on each platform for the full picture.</footer>
 </div>
 <script>
