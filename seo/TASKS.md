@@ -22,6 +22,11 @@ Maintained by Claude. Items need Jared or someone with account access. Claude em
 17. **Send Claude one real project update per week** (town, service, stage, 3 photos) for the GBP post + YouTube Short script.
 18. **Consider moving the Netlify project** from the Moodswing account to a Good Guys Pools-owned Netlify account.
 
+19. **Join NESPA Metro NY/NJ chapter** (metro-ny-nj.nespapool.org/Join, info@Metrochapter.com): includes PHTA membership, an indexable Member Locator profile, and eligibility for NESPA Awards that competitors (Aquatecture, Cipriano) cite. Consider CBP certification for the lead builder.
+20. **Join Hackensack Regional Chamber** (201-489-3700, info@hackensackchamber.org) and **Greater Pascack Valley Chamber** ($50/yr; gives a member page).
+21. **Enroll in manufacturer dealer locators** for brands you actually install: Pentair Pro Locator, Hayward Totally Hayward (via your rep), Latham Builder, Jandy/Fluidra Pro, PebbleTec Find-a-Builder.
+22. **Register free listing** on Pool Magazine's Pool Industry Directory.
+
 ## Done
 - 2026-10-31 Google Search Console property verified for goodguyspoolsreviews.com (HTML file served from site)
 - 2026-10-31 Bing Places claimed + verified (synced from Google); Bing Webmaster Tools set up
