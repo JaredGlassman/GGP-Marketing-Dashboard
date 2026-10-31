@@ -11,7 +11,7 @@ Maintained by Claude. Items need Jared or someone with account access. Claude em
 6. **Set a 1-business-hour lead-response rule** across Thumbtack, GBP messages, website form, phone. The last three Thumbtack reviews (1★/1★/4★) are all about no follow-up.
 7. **Send Claude the Google reviews** (screenshots from the GBP app, or Google Takeout export) so goodguyspoolsreviews.com has more than 3 reviews.
 8. **Unblock Claude's web access** (laptop): claude.ai/code → Settings → Environments → this environment → Network access → Full. Then start a new session. This lets Claude pull reviews and verify listings directly.
-9. **Google Search Console for goodguyspoolsreviews.com**: add property, verify via DNS TXT in Namecheap, submit sitemap.xml. Then Bing Webmaster "Import from GSC."
+9. **Submit sitemap + Bing import for goodguyspoolsreviews.com**: GSC → Sitemaps → `sitemap.xml`; then Bing Webmaster Tools → Import from GSC.
 10. **Add a "Read our reviews" footer link** on goodguyspools.com → https://goodguyspoolsreviews.com.
 11. **Request re-indexing** in GSC for goodguyspools.com homepage + contact page (new address), then tap Sync in Bing Places.
 12. **Resolve the founding-date contradiction**: BBB says started 5/27/2025, Angi says 2020/2025, listings say "25+ years." Pick a true statement and use it everywhere.
@@ -23,6 +23,7 @@ Maintained by Claude. Items need Jared or someone with account access. Claude em
 18. **Consider moving the Netlify project** from the Moodswing account to a Good Guys Pools-owned Netlify account.
 
 ## Done
+- 2026-10-31 Google Search Console property verified for goodguyspoolsreviews.com (HTML file served from site)
 - 2026-10-31 Bing Places claimed + verified (synced from Google); Bing Webmaster Tools set up
 - 2026-10-31 Yelp listing reopened + address fixed (owner-reported)
 - 2026-10-31 BBB phone fixed (owner-reported)
