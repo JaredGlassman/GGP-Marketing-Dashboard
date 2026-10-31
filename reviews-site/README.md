@@ -24,3 +24,10 @@ It is deliberately an independent design with a disclosure line saying the site 
 - The build fails if a review is missing a source, date or rating, or contains a `[[` placeholder.
 
 Fastest way to fill it: export reviews from Google Business Profile (Google Takeout → Business Profile), or paste them into Claude and run the `review-curator` agent.
+
+## Hosting (live since 2026-10-31)
+- **URL:** https://goodguyspoolsreviews.com (also https://goodguyspoolsreviews.netlify.app)
+- **Host:** Netlify, project `goodguyspoolsreviews`, team "jared-lv16mqg's team" (login: jared@moodswingmgmt.com via Google). Consider transferring to a Good Guys Pools-owned Netlify account later.
+- **Deploys from:** GitHub `JaredGlassman/GGP-Marketing-Dashboard`, branch `claude/ggp-seo-strategy-20261l`, base directory `reviews-site`. Every push to that branch rebuilds the site.
+- **DNS (Namecheap, BasicDNS):** `A @ 75.2.60.5`, `CNAME www goodguyspoolsreviews.netlify.app`.
+- **Next:** add the property in Google Search Console + Bing Webmaster Tools and submit `https://goodguyspoolsreviews.com/sitemap.xml`; link to the hub from goodguyspools.com.

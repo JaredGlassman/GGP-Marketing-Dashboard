@@ -131,6 +131,7 @@ Priority queue (from your top-performing paid keywords in "Google Keywords" shee
 - Every 5-star review (with permission) flows into the review hub (§6) via `reviews-site/reviews.json`.
 
 ## 6. goodguyspoolsreviews.com: the compliant version
+**Status: live 2026-10-31** at https://goodguyspoolsreviews.com with 3 verified Thumbtack reviews. Hosting details in `reviews-site/README.md`.
 **What you asked for:** Google-branded look, amalgamation of 5-star reviews.
 **What I built:** `reviews-site/`, an independently branded, mobile-first review hub that:
 - shows only real reviews, each with its source platform, date, and a link to the original;
