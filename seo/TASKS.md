@@ -4,7 +4,7 @@ Maintained by Claude. Items need Jared or someone with account access. Claude em
 
 ## Open (ordered by impact)
 1. **Reply publicly to the two May 2026 HomeAdvisor 1★ reviews** (unfinished concrete pool with open permits; fiberglass refinish delays). Resolve the jobs, close permits, post factual owner replies. Recent negatives are what AI answers quote.
-2. **Fix HomeAdvisor/Angi profile** (call HomeAdvisor): merge the two duplicate profiles (5.0/14 and 4.6/19), change categories to In-Ground Pool Build + Remodel (currently Enclosures/Heaters/Covers), set service area to Bergen/Passaic/Morris/Essex, **change the address to 238 West St** (HomeAdvisor town pages still show Orchard St #4C), correct "1 year of experience / since 2025" only if inaccurate, and fix the "does not offer warranties" FAQ.
+2. **Fix HomeAdvisor/Angi profile** (call HomeAdvisor): merge the two duplicate profiles (5.0/14 and 4.6/19), change categories to In-Ground Pool Build + Remodel (currently Enclosures/Heaters/Covers), set service area to Bergen/Passaic/Morris/Essex, correct "1 year of experience / since 2025" only if inaccurate, and fix the "does not offer warranties" FAQ.
 3. **Verify in Thumbtack Pro whether a second profile exists** (search snippets show "Elizabeth, NJ 5.0/30"; the Thumbtack connector shows only South Hackensack 4.7/35). If it exists, merge it.
 4. **Create free profiles with canonical NAP + town-tagged project photos** on: Architect Magazine pro directory, HomeGuide, Patch business listing. These three pages surfaced in 9, 7 and 9 of the 14 baseline AI searches; competitors win because of them.
 5. **Ask the 30 Thumbtack reviewers (and recent customers) for a Google review** that mentions their town and the work done. Target 6–10 per month, steady.
@@ -28,6 +28,7 @@ Maintained by Claude. Items need Jared or someone with account access. Claude em
 22. **Register free listing** on Pool Magazine's Pool Industry Directory.
 
 ## Done
+- 2026-11-02 Angi/HomeAdvisor Pro address updated to 238 West St (owner-reported; town pages will lag)
 - 2026-11-02 First Monday task email sent from info@goodguyspools.com via Zapier
 - 2026-10-31 Sitemap for goodguyspoolsreviews.com submitted to Google Search Console (Success)
 - 2026-10-31 Google Search Console property verified for goodguyspoolsreviews.com (HTML file served from site)
