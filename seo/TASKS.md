@@ -4,8 +4,8 @@ Maintained by Claude. Items need Jared or someone with account access. Claude em
 
 ## Open (ordered by impact)
 1. **Reply publicly to the two May 2026 HomeAdvisor 1★ reviews** (unfinished concrete pool with open permits; fiberglass refinish delays). Resolve the jobs, close permits, post factual owner replies. Recent negatives are what AI answers quote.
-2. **Fix HomeAdvisor/Angi profile** (call HomeAdvisor): merge the two duplicate profiles (5.0/14 and 4.6/19), change categories to In-Ground Pool Build + Remodel (currently Enclosures/Heaters/Covers), set service area to Bergen/Passaic/Morris/Essex, correct "1 year of experience / since 2025" only if inaccurate, and fix the "does not offer warranties" FAQ.
-3. **Merge the duplicate Thumbtack profile** listed under Elizabeth, NJ (5.0/30) into the South Hackensack one (4.7/35).
+2. **Fix HomeAdvisor/Angi profile** (call HomeAdvisor): merge the two duplicate profiles (5.0/14 and 4.6/19), change categories to In-Ground Pool Build + Remodel (currently Enclosures/Heaters/Covers), set service area to Bergen/Passaic/Morris/Essex, **change the address to 238 West St** (HomeAdvisor town pages still show Orchard St #4C), correct "1 year of experience / since 2025" only if inaccurate, and fix the "does not offer warranties" FAQ.
+3. **Verify in Thumbtack Pro whether a second profile exists** (search snippets show "Elizabeth, NJ 5.0/30"; the Thumbtack connector shows only South Hackensack 4.7/35). If it exists, merge it.
 4. **Create free profiles with canonical NAP + town-tagged project photos** on: Architect Magazine pro directory, HomeGuide, Patch business listing. These three pages surfaced in 9, 7 and 9 of the 14 baseline AI searches; competitors win because of them.
 5. **Ask the 30 Thumbtack reviewers (and recent customers) for a Google review** that mentions their town and the work done. Target 6–10 per month, steady.
 6. **Set a 1-business-hour lead-response rule** across Thumbtack, GBP messages, website form, phone. The last three Thumbtack reviews (1★/1★/4★) are all about no follow-up.
@@ -13,7 +13,7 @@ Maintained by Claude. Items need Jared or someone with account access. Claude em
 8. **Unblock Claude's web access** (laptop): claude.ai/code → Settings → Environments → this environment → Network access → Full. Then start a new session. This lets Claude pull reviews and verify listings directly.
 9. **Bing Webmaster Tools → Import from Google Search Console** so goodguyspoolsreviews.com is added there too.
 10. **Add a "Read our reviews" footer link** on goodguyspools.com → https://goodguyspoolsreviews.com.
-11. **Request re-indexing** in GSC for goodguyspools.com homepage + contact page (new address), then tap Sync in Bing Places.
+11. **In Search Console for goodguyspools.com: check the Pages report for indexing problems, then Request indexing** on the homepage + contact page (new address). Tap Sync in Bing Places afterwards.
 12. **Resolve the founding-date contradiction**: BBB says started 5/27/2025, Angi says 2020/2025, listings say "25+ years." Pick a true statement and use it everywhere.
 13. **Claim Apple Business Connect** (businessconnect.apple.com) with 238 West St, South Hackensack, NJ 07606, (201) 822-1189.
 14. **Fix remaining old-address listings**: Houzz ("Hackensack, NY" + Orchard St), Nextdoor, BuildZoom (also shows an old license 13VH14082500), Tydl, AquaticsConnect.
