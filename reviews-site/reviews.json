@@ -9,9 +9,9 @@
   "platform_totals": [
     {
       "platform": "Google",
-      "rating": null,
-      "count": null,
-      "url": "[[GGP FILL: Google review URL]]"
+      "rating": 4.7,
+      "count": 44,
+      "url": "https://www.google.com/maps/search/Good+Guys+Pools+South+Hackensack+NJ"
     },
     {
       "platform": "Thumbtack",
@@ -68,6 +68,363 @@
       "source_url": "https://www.thumbtack.com/nj/south-hackensack/pool-builders/good-guys-pools/service/550772785116905480?category_pk=195544051569639934&project_pk=594265937542963203&search_form_pk=544660501983166466&search_query=195544051569639934&utm_medium=partnership&utm_source=cma-anthropic&utm_tt_session=1d347c15535765d6ef59acc9e99aeecbf22521b268f2ca1d78843b0b5f4ff494&zip_code=07601",
       "service": "service",
       "text": "This is the best pool service I have experienced since building my pool in-ground pool in 2003. They are committed to making your pool look perfect and talk you through the process. Joseph was excellent!"
+    },
+    {
+      "id": "g-2026-10-20-chestera",
+      "name": "Chester A.",
+      "rating": 5,
+      "date": "2026-10-20",
+      "source": "Google",
+      "source_url": "https://www.google.com/maps/search/Good+Guys+Pools+South+Hackensack+NJ",
+      "text": "couldn't be happier with our choice working with these guys. highly recommend them. they did everything they promised and now we have a beautiful pool!",
+      "service": "construction"
+    },
+    {
+      "id": "g-2026-07-11-adidvir",
+      "name": "Adi D.",
+      "rating": 5,
+      "date": "2026-07-11",
+      "source": "Google",
+      "source_url": "https://www.google.com/maps/search/Good+Guys+Pools+South+Hackensack+NJ",
+      "text": "After long search I found the people I want to work with.\nThe pool looks great and we can’t be thankful enough",
+      "service": "construction"
+    },
+    {
+      "id": "g-2026-07-06-jessical",
+      "name": "Jessica L.",
+      "rating": 5,
+      "date": "2026-07-06",
+      "source": "Google",
+      "source_url": "https://www.google.com/maps/search/Good+Guys+Pools+South+Hackensack+NJ",
+      "text": "One thing I enjoyed about working with this company is their attention to details. I appreciate the follow up and updates. Mother nature will always cause unexpected delays. Good Guys Pools planned ahead and communicated theor plans effectively.  Thank you for a great experience!"
+    },
+    {
+      "id": "g-2026-06-08-jasonlar",
+      "name": "Jason L.",
+      "rating": 5,
+      "date": "2026-06-08",
+      "source": "Google",
+      "source_url": "https://www.google.com/maps/search/Good+Guys+Pools+South+Hackensack+NJ",
+      "text": "We recently had our pool liner replaced and new corner steps installed by Good Guys Pools, and the entire experience was outstanding.\n\nCharles, the project manager, was phenomenal from start to finish. He was incredibly responsive, always answered my questions, and consistently returned my calls. It’s rare to find that level of communication and customer service these days.\n\nThe installation team was professional, hardworking, and paid attention to every detail. The quality of the work exceeded our expectations, and the pool looks amazing.\n\nIf you’re looking for a company that stands behind their work and truly cares about their customers, I highly recommend Good Guys Pools. Thank you to Charles and the entire team for a fantastic job!",
+      "service": "renovation"
+    },
+    {
+      "id": "g-2026-06-03-elitaite",
+      "name": "Eli T.",
+      "rating": 5,
+      "date": "2026-06-03",
+      "source": "Google",
+      "source_url": "https://www.google.com/maps/search/Good+Guys+Pools+South+Hackensack+NJ",
+      "text": "The Good Guys Pools are amazing; great staff! Honorable crew, reliable and excellent work! I definitely recommend them!!!!"
+    },
+    {
+      "id": "g-2026-05-31-barryzev",
+      "name": "Barry Z.",
+      "rating": 5,
+      "date": "2026-05-31",
+      "source": "Google",
+      "source_url": "https://www.google.com/maps/search/Good+Guys+Pools+South+Hackensack+NJ",
+      "text": "Excellent in every respect - on time on budget - with amazing results - crews and management super responsive - Great decision and highly recommended"
+    },
+    {
+      "id": "g-2026-05-29-jonhvent",
+      "name": "Jonh V.",
+      "rating": 5,
+      "date": "2026-05-29",
+      "source": "Google",
+      "source_url": "https://www.google.com/maps/search/Good+Guys+Pools+South+Hackensack+NJ",
+      "text": "No complaints at all. They opened my pool, balanced the water, and vacuumed everything thoroughly. Great service and the pool was ready to enjoy right away.",
+      "service": "service"
+    },
+    {
+      "id": "g-2026-05-29-hectorri",
+      "name": "Hector R.",
+      "rating": 5,
+      "date": "2026-05-29",
+      "source": "Google",
+      "source_url": "https://www.google.com/maps/search/Good+Guys+Pools+South+Hackensack+NJ",
+      "text": "They opened my pool last week and left it ready for the summer. They also identified and fixed a few other issues, which I really appreciated. Great service, professional team, and excellent communication throughout the process.",
+      "service": "service"
+    },
+    {
+      "id": "g-2026-05-29-johanjom",
+      "name": "Johan J.",
+      "rating": 5,
+      "date": "2026-05-29",
+      "source": "Google",
+      "source_url": "https://www.google.com/maps/search/Good+Guys+Pools+South+Hackensack+NJ",
+      "text": "I had a great experience with them. They were so nice and explained me the whole process and told me how to take care of the pool."
+    },
+    {
+      "id": "g-2026-05-14-christop",
+      "name": "Christopher H.",
+      "rating": 5,
+      "date": "2026-05-14",
+      "source": "Google",
+      "source_url": "https://www.google.com/maps/search/Good+Guys+Pools+South+Hackensack+NJ",
+      "text": "The best in the business!!  They installed an incredible pool just in time for the summer.",
+      "service": "construction"
+    },
+    {
+      "id": "g-2026-04-29-johnrubi",
+      "name": "John R.",
+      "rating": 5,
+      "date": "2026-04-29",
+      "source": "Google",
+      "source_url": "https://www.google.com/maps/search/Good+Guys+Pools+South+Hackensack+NJ",
+      "text": "Awesome service and friendly. Charles and Jeffrey who opened my pool for the season were great, informative and had very good communication. Would not hesitate to call them for all my pool needs 👍",
+      "service": "service"
+    },
+    {
+      "id": "g-2026-03-31-destinee",
+      "name": "Destinee J.",
+      "rating": 5,
+      "date": "2026-03-31",
+      "source": "Google",
+      "source_url": "https://www.google.com/maps/search/Good+Guys+Pools+South+Hackensack+NJ",
+      "text": "Amazing job! And thank goodness for this company. The quotes and services I got from other companies was ridiculous! Looking forward to this summer with our new pool.",
+      "service": "construction"
+    },
+    {
+      "id": "g-2026-03-31-destinyr",
+      "name": "Destinyrusso",
+      "rating": 5,
+      "date": "2026-03-31",
+      "source": "Google",
+      "source_url": "https://www.google.com/maps/search/Good+Guys+Pools+South+Hackensack+NJ",
+      "text": "I had a great experience with Good Guys Pool LLC. The service was excellent, and everything was handled quickly and efficiently. Izaiah and Charles were both very knowledgeable and took the time to explain everything clearly, which I really appreciated. Their professionalism really stood out, and you can tell they take pride in their work. I highly recommend this company to anyone looking for reliable and trustworthy pool service.",
+      "service": "service"
+    },
+    {
+      "id": "g-2026-02-10-betzythe",
+      "name": "Betzy T.",
+      "rating": 5,
+      "date": "2026-02-10",
+      "source": "Google",
+      "source_url": "https://www.google.com/maps/search/Good+Guys+Pools+South+Hackensack+NJ",
+      "text": "Great and fast service.\nthese guys were amazing and knowledgeable"
+    },
+    {
+      "id": "g-2025-09-29-geraldin",
+      "name": "Geraldine K.",
+      "rating": 5,
+      "date": "2025-09-29",
+      "source": "Google",
+      "source_url": "https://www.google.com/maps/search/Good+Guys+Pools+South+Hackensack+NJ",
+      "text": "Out of all the pool companies I have used they are number 1. They are amazing in their work and how  professional and kind they are. They are defiantly my pool people for every summer",
+      "service": "service"
+    },
+    {
+      "id": "g-2025-09-05-tom",
+      "name": "Tom",
+      "rating": 5,
+      "date": "2025-09-05",
+      "source": "Google",
+      "source_url": "https://www.google.com/maps/search/Good+Guys+Pools+South+Hackensack+NJ",
+      "text": "They have serviced my pool this summer and I couldn't be happier.  Joe if so knowedgeable and quick.  He goes beyond and above.",
+      "service": "service"
+    },
+    {
+      "id": "g-2025-07-14-nenemach",
+      "name": "Nene M.",
+      "rating": 5,
+      "date": "2025-07-14",
+      "source": "Google",
+      "source_url": "https://www.google.com/maps/search/Good+Guys+Pools+South+Hackensack+NJ",
+      "text": "The Good Guys are absolutely thee best outstanding pool service!\n\nTheir services have completely transformed our pool experience. They’re reliable, professional, and treat our pool with such care and detail. It’s always sparkling clean and perfectly maintained.\n\nThe guys are such cool and approachable people too! We’re so grateful for their consistent, high-quality service—truly the best in the business!\n\nI highly highly recommend them!",
+      "service": "service"
+    },
+    {
+      "id": "g-2025-07-14-williame",
+      "name": "William E.",
+      "rating": 5,
+      "date": "2025-07-14",
+      "source": "Google",
+      "source_url": "https://www.google.com/maps/search/Good+Guys+Pools+South+Hackensack+NJ",
+      "text": "Where do I begin? The service was like no other. From the second I talked to the owner Iziah I knew I could trust them to build and maintain the perfect pool for my backyard. Whether or not you have a pool, I recommend the Good Guys because of their professional services and passion with the work they do."
+    },
+    {
+      "id": "g-2025-06-30-trentonp",
+      "name": "Trenton P.",
+      "rating": 5,
+      "date": "2025-06-30",
+      "source": "Google",
+      "source_url": "https://www.google.com/maps/search/Good+Guys+Pools+South+Hackensack+NJ",
+      "text": "If it was possible to give more than 5 stars on a review I would. When inquiring about getting a new pool installed the team was very helpful and professional. Looking at some of their previous work I can tell they are passionate in what they do. I'm looking forward to my new pool and will definitely be contacting them in the future for their other pool services.",
+      "service": "construction"
+    },
+    {
+      "id": "g-2025-06-20-cesargue",
+      "name": "Cesar G.",
+      "rating": 5,
+      "date": "2025-06-20",
+      "source": "Google",
+      "source_url": "https://www.google.com/maps/search/Good+Guys+Pools+South+Hackensack+NJ",
+      "text": "They are very professional, it was a stressful job. But, they got it done."
+    },
+    {
+      "id": "g-2025-06-18-ivetdiaz",
+      "name": "Ivet D.",
+      "rating": 5,
+      "date": "2025-06-18",
+      "source": "Google",
+      "source_url": "https://www.google.com/maps/search/Good+Guys+Pools+South+Hackensack+NJ",
+      "text": "Real testimony here:\n\nWe opened our pool on 5/5…by we opened, I mean we paid someone to open it, and that’s all he did. He removed the cover and added some chemicals… no cleaning, no checking to see if the equipment was working properly, no follow.. by the way, he was not cheap.\n\nWe tried for about 3 weeks to clear our pool with no success. The pool was a blueish/greenish color but the water was murky. After dumping a bunch of money in chemicals and many many trips to Leslie’s pool to test the water with no success we finally decided to call a pool company.\n\nI found them on the FB marketplace and gave them a call. The came out the following week and within just 1 visits my pool was crystal clear.\n\nTina (office person) was extremely helpful and pleasant.\n\nMatthew was super informative and helpful.",
+      "service": "service"
+    },
+    {
+      "id": "g-2025-06-07-lifelovi",
+      "name": "Life L.",
+      "rating": 5,
+      "date": "2025-06-07",
+      "source": "Google",
+      "source_url": "https://www.google.com/maps/search/Good+Guys+Pools+South+Hackensack+NJ",
+      "text": "I had a fantastic experience with this pool cleaning company. Iziah and his team didn’t just clean my pool thoroughly, they also went above and beyond by fixing part of the pool wall that needed attention. The team was punctual, professional, and very respectful of my property.\n\nCommunication was smooth from start to finish, and they clearly take pride in their work. My pool looks sparkling clean, and the wall repair was done with care and precision. It’s such a relief to find a company that’s reliable and delivers high-quality service.\n\nI highly recommend them to anyone needing pool maintenance or repairs—you’ll be in good hands!\n\nThanks again – we enjoy swimming again a lot!\nSheli, Miki, Martina",
+      "service": "repair"
+    },
+    {
+      "id": "g-2025-06-06-taekim",
+      "name": "Tae K.",
+      "rating": 5,
+      "date": "2025-06-06",
+      "source": "Google",
+      "source_url": "https://www.google.com/maps/search/Good+Guys+Pools+South+Hackensack+NJ",
+      "text": "New homeowner opening our pool for the first time. Good Guys Pools replaced my pool pump, programmed the water heater and opened the pool. Very professional and knowledgeable. Great people to work with.",
+      "service": "repair"
+    },
+    {
+      "id": "g-2025-05-26-talyawei",
+      "name": "Talya W.",
+      "rating": 5,
+      "date": "2025-05-26",
+      "source": "Google",
+      "source_url": "https://www.google.com/maps/search/Good+Guys+Pools+South+Hackensack+NJ",
+      "text": "Thank you to Izaiah and good guys pool for great customer service and professionalism. My new pool pump works great!\nGood guys pool is easy to get in touch with and available to help in a timely manner.",
+      "service": "repair"
+    },
+    {
+      "id": "g-2025-05-22-synphoni",
+      "name": "Synphoni B.",
+      "rating": 5,
+      "date": "2025-05-22",
+      "source": "Google",
+      "source_url": "https://www.google.com/maps/search/Good+Guys+Pools+South+Hackensack+NJ",
+      "text": "I had such a great experience with Good Guys and couldn’t be happier with how my pool turned out! From start to finish, they were efficient, on time, accurate, and completely reliable. Every person I dealt with was professional and kind, and they really took the time to make sure everything was done right.\n\nA special shoutout to Iziah—he was absolutely amazing! His communication was on point, always upfront, and kept me informed every step of the way. It really gave me peace of mind knowing I could trust what he said and that he followed through every time.\nHighly recommend these guys if you're looking for quality work and a team you can trust."
+    },
+    {
+      "id": "g-2025-05-21-rzshowro",
+      "name": "Rz R.",
+      "rating": 5,
+      "date": "2025-05-21",
+      "source": "Google",
+      "source_url": "https://www.google.com/maps/search/Good+Guys+Pools+South+Hackensack+NJ",
+      "text": "Tina provided exceptional customer service, and I thoroughly enjoyed working with the brand-new pool.",
+      "service": "construction"
+    },
+    {
+      "id": "g-2025-04-15-evanvele",
+      "name": "Evan V.",
+      "rating": 5,
+      "date": "2025-04-15",
+      "source": "Google",
+      "source_url": "https://www.google.com/maps/search/Good+Guys+Pools+South+Hackensack+NJ",
+      "text": "There’s a lot of bad guys out there, but when it comes to my pool, I prefer to go with the good guys! The work was done efficiently and they answered all of my questions throughout, which I always need."
+    },
+    {
+      "id": "g-2025-04-13-alexbarr",
+      "name": "Alex B.",
+      "rating": 5,
+      "date": "2025-04-13",
+      "source": "Google",
+      "source_url": "https://www.google.com/maps/search/Good+Guys+Pools+South+Hackensack+NJ",
+      "text": "I reached out and hired Good Guys Pools for a pool repair recently because of a friend with a great recommendation for these guys, and I couldn’t have been more impressed with their service. Iziah was quality, efficient, and highly knowledgeable. The team explained the repair process in detail, provided a fair estimate, and got to work right away. They got the job done quicker than expected and the results spoke for themselves. I couldn’t be happier with my pool !",
+      "service": "repair"
+    },
+    {
+      "id": "g-2025-04-05-michaelk",
+      "name": "Michael K.",
+      "rating": 5,
+      "date": "2025-04-05",
+      "source": "Google",
+      "source_url": "https://www.google.com/maps/search/Good+Guys+Pools+South+Hackensack+NJ",
+      "text": "I recently hired Good Guys Pools for a pool repair, and I couldn’t be more impressed with their service. The team was professional, efficient, and highly knowledgeable. My pool had a leak that I couldn’t pinpoint, and they quickly assessed the situation and identified the issue. They explained the repair process in detail, gave me a fair estimate, and got to work right away.\n\nI highly recommend these guys for anyone needing pool repairs. They truly stand out in terms of service and expertise 👍🏻",
+      "service": "repair"
+    },
+    {
+      "id": "g-2025-04-04-hannasir",
+      "name": "Hanna S.",
+      "rating": 5,
+      "date": "2025-04-04",
+      "source": "Google",
+      "source_url": "https://www.google.com/maps/search/Good+Guys+Pools+South+Hackensack+NJ",
+      "text": "Good guy pools have made my pool renovation easy, fast, and stress free. They are a reliable and trustworthy service. Thanks good guys!",
+      "service": "renovation"
+    },
+    {
+      "id": "g-2025-04-03-chrisrui",
+      "name": "Chris R.",
+      "rating": 5,
+      "date": "2025-04-03",
+      "source": "Google",
+      "source_url": "https://www.google.com/maps/search/Good+Guys+Pools+South+Hackensack+NJ",
+      "text": "We chose Good Guys Pools for our new in ground vinyl liner pool install, Iziah and the entire team were highly professional, and made the process very easy. We hired them do our pavers and steps and the job came out great, pricing was fair. Would highly recommend!",
+      "service": "construction"
+    },
+    {
+      "id": "g-2025-04-03-georgewi",
+      "name": "George W.",
+      "rating": 5,
+      "date": "2025-04-03",
+      "source": "Google",
+      "source_url": "https://www.google.com/maps/search/Good+Guys+Pools+South+Hackensack+NJ",
+      "text": "Went above and beyond would recommend 10/10"
+    },
+    {
+      "id": "g-2025-04-03-joeflack",
+      "name": "Joe F.",
+      "rating": 5,
+      "date": "2025-04-03",
+      "source": "Google",
+      "source_url": "https://www.google.com/maps/search/Good+Guys+Pools+South+Hackensack+NJ",
+      "text": "I recently had the pleasure of working with good guy pools for the installation of an underground pool at my property, and I am absolutely thrilled with the results. From the initial consultation to the final touches, the team was incredibly professional, efficient, and attentive to every detail.\n\nThe project was handled with exceptional care and precision, and they made sure to address all my concerns and preferences along the way. The crew was punctual, friendly, and knowledgeable, offering insightful recommendations while also respecting my vision for the pool. They were committed to ensuring that everything was completed to the highest standard, and the end result speaks for itself.\n\nNot only did they adhere to the agreed-upon timeline, but they also maintained an organized and clean worksite throughout the entire process. It was clear that customer satisfaction is a top priority for them, and they certainly delivered on that front.\n\nThe pool is now a stunning addition to my backyard, and I couldn’t be happier with",
+      "service": "construction"
+    },
+    {
+      "id": "g-2025-04-03-sherlana",
+      "name": "Sherlana R.",
+      "rating": 5,
+      "date": "2025-04-03",
+      "source": "Google",
+      "source_url": "https://www.google.com/maps/search/Good+Guys+Pools+South+Hackensack+NJ",
+      "text": "I’m so satisfied with the work done by Good Guys Pools! You can tell they really care about quality and customer satisfaction. Whether it’s pool repairs, maintenance, or brand new installations, they handle it all with professionalism and attention to detail. The service is reliable, efficient, and super friendly. If you’re looking for a pool company that genuinely takes pride in their work and treats you like family, this is it. Highly recommend!"
+    },
+    {
+      "id": "g-2025-04-03-shanerod",
+      "name": "Shane R.",
+      "rating": 5,
+      "date": "2025-04-03",
+      "source": "Google",
+      "source_url": "https://www.google.com/maps/search/Good+Guys+Pools+South+Hackensack+NJ",
+      "text": "Summers coming up and my pool was a mess. My filter was shoot out and algae accumulation was a big problem. I decided to give Good Guys pools a chance because they were local and they overachieved and my pool is the best it has been in years. I would recommend these guys to anyone because in terms of transparency and service the Good Guys turned out to be Great Ones!",
+      "service": "service"
+    },
+    {
+      "id": "g-2025-04-03-stevench",
+      "name": "Steven C.",
+      "rating": 5,
+      "date": "2025-04-03",
+      "source": "Google",
+      "source_url": "https://www.google.com/maps/search/Good+Guys+Pools+South+Hackensack+NJ",
+      "text": "Extremely satisfied with the work these guys do thank you so much for the amazing experience"
+    },
+    {
+      "id": "g-2025-04-03-vishnu",
+      "name": "Vishnu",
+      "rating": 5,
+      "date": "2025-04-03",
+      "source": "Google",
+      "source_url": "https://www.google.com/maps/search/Good+Guys+Pools+South+Hackensack+NJ",
+      "text": "Absolutely amazing experience with Good Guys poolsFrom start to finish, their team was professional, knowledgeable, and detail-oriented. The quality of their work exceeded my expectations, and my pool looks stunning. If you’re looking for top-notch service and craftsmanship, this is the company to go with"
     }
   ]
 }

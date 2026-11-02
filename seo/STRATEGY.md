@@ -17,7 +17,7 @@
    | Source | Status (canonical: 238 West St, South Hackensack, NJ 07606 · (201) 822-1189) |
    |---|---|
    | **goodguyspools.com (your own site)** | ❌ **Shows the OLD address, 86-110 Orchard Street, Hackensack. Fix first: directories and AIs copy the website.** Also shows a self-reported "Based on 30 reviews" widget |
-   | Google Business Profile | ✅ Correct (owner-confirmed). Website widget says 30 Google reviews |
+   | Google Business Profile | ✅ Correct. **44 reviews, 4.7★** (API, 2026-11-02). 3 unreplied 1★ (May–Jul 2026: unfinished pool/open permits; missed appointments; fiberglass refinish delays) and 1 unreplied 5★ (Oct 20) |
    | Bing Places | ✅ Claimed + verified 2026-10-31 (synced from Google), publishing in 7–12 days. Bing Webmaster Tools set up |
    | Apple Business Connect | ⏳ Not yet claimed |
    | Yelp (`good-guys-hackensack-3`) | ✅ Owner reports fixed 2026-10-31 (was "Closed", old address). Verify once re-indexed |
