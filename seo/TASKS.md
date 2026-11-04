@@ -13,11 +13,11 @@ Maintained by Claude. Items need Jared or someone with account access. Claude em
 8. **Unblock Claude's web access** (laptop): claude.ai/code → Settings → Environments → this environment → Network access → Full. Then start a new session. This lets Claude pull reviews and verify listings directly.
 9. **Bing Webmaster Tools → Import from Google Search Console** so goodguyspoolsreviews.com is added there too.
 10. **Add a "Read our reviews" footer link** on goodguyspools.com → https://goodguyspoolsreviews.com.
-11. **In Search Console for goodguyspools.com: check the Pages report for indexing problems, then Request indexing** on the homepage + contact page (new address). Tap Sync in Bing Places afterwards.
+11. **goodguyspools.com indexing** (Search Console Pages report 2026-11-02: 4 indexed, 206 not; last crawl 10/22): (a) Request indexing on the homepage + contact page; (b) send Claude the URL lists for "Crawled - currently not indexed" (26), "Blocked 403" (3) and the first page of "Not found 404" (152) so the thin pages can be rewritten and the 403s fixed with the host; (c) tap Sync in Bing Places afterwards.
 12. **Resolve the founding-date contradiction**: BBB says started 5/27/2025, Angi says 2020/2025, listings say "25+ years." Pick a true statement and use it everywhere.
 13. **Claim Apple Business Connect** (businessconnect.apple.com) with 238 West St, South Hackensack, NJ 07606, (201) 822-1189.
 14. **Fix remaining old-address listings**: Houzz ("Hackensack, NY" + Orchard St), Nextdoor, BuildZoom (also shows an old license 13VH14082500), Tydl, AquaticsConnect.
-15. ~~Connect Google Business Profile to Zapier~~ DONE 2026-11-02. Remaining: (https://mcp.zapier.com/api/v1/connect-auth/GoogleMyBusinessCLIAPI?accountId=21740689) — Zapier quota reset 2026-11-02, so this now works as soon as it's authorized. Enables Claude to pull Google reviews verbatim, reply to reviews, and publish weekly GBP posts. (Alternative: the Outscraper account under hello@growhappyseeds.com needs a valid card/credits before it can pull reviews.)
+15. **Keep the Zapier plan topped up with tasks.** The Google Business Profile connection (done 2026-11-02) is how Claude pulls reviews, posts replies and publishes weekly GBP posts; it stops working when the Zapier task quota runs out.
 16. **Fill the `[[GGP FILL]]` markers** in seo/content/ drafts and seo/schema/facts.json (pool types built, price ranges, warranty, timelines, founding year, author byline). HIC confirmed as 13VH13660100.
 17. **Send Claude one real project update per week** (town, service, stage, 3 photos) for the GBP post + YouTube Short script.
 18. **Consider moving the Netlify project** from the Moodswing account to a Good Guys Pools-owned Netlify account.
