@@ -9,14 +9,14 @@ Maintained by Claude. Items need Jared or someone with account access. Claude em
 4. **Create free profiles with canonical NAP + town-tagged project photos** on: Architect Magazine pro directory, HomeGuide, Patch business listing. These three pages surfaced in 9, 7 and 9 of the 14 baseline AI searches; competitors win because of them.
 5. **Ask the 30 Thumbtack reviewers (and recent customers) for a Google review** that mentions their town and the work done. Target 6–10 per month, steady.
 6. **Set a 1-business-hour lead-response rule** across Thumbtack, GBP messages, website form, phone. The last three Thumbtack reviews (1★/1★/4★) are all about no follow-up.
-7. **Approve the 4 Google review replies** in seo/gbp/review-replies-2026-11-02.md (one unreplied 5★ from Oct 20, three unreplied 1★). Fill the fact gaps, then tell Claude which to post.
+7. **Approve the 6 Google review replies** in seo/gbp/review-replies-2026-11-02.md (three unreplied 5★: Oct 20, Nov 6, Nov 9; three unreplied 1★). Fill the fact gaps on the 1★ ones, then tell Claude which to post.
 8. **Unblock Claude's web access** (laptop): claude.ai/code → Settings → Environments → this environment → Network access → Full. Then start a new session. This lets Claude pull reviews and verify listings directly.
 9. **Bing Webmaster Tools → Import from Google Search Console** so goodguyspoolsreviews.com is added there too.
 10. **Add a "Read our reviews" footer link** on goodguyspools.com → https://goodguyspoolsreviews.com.
 11. **goodguyspools.com indexing** (Search Console Pages report 2026-11-02: 4 indexed, 206 not; last crawl 10/22): (a) Request indexing on the homepage + contact page; (b) send Claude the URL lists for "Crawled - currently not indexed" (26), "Blocked 403" (3) and the first page of "Not found 404" (152) so the thin pages can be rewritten and the 403s fixed with the host; (c) tap Sync in Bing Places afterwards.
 12. **Resolve the founding-date contradiction**: BBB says started 5/27/2025, Angi says 2020/2025, listings say "25+ years." Pick a true statement and use it everywhere.
 13. **Claim Apple Business Connect** (businessconnect.apple.com) with 238 West St, South Hackensack, NJ 07606, (201) 822-1189.
-14. **Fix remaining old-address listings**: Houzz ("Hackensack, NY" + Orchard St), Nextdoor, BuildZoom (also shows an old license 13VH14082500), Tydl, AquaticsConnect.
+14. **Fix remaining old-address listings**: Yelp (index still shows "Updated May 2026, 86110 Orchard St" — check in Yelp for Business whether the 10/31 edit was rejected), Houzz (state now NJ, street still 86-110 Orchard), Nextdoor, BuildZoom (also old license 13VH14082500), Tydl, AquaticsConnect, atly.com ("New Yorkers 1st Choice").
 15. **Keep the Zapier plan topped up with tasks.** The Google Business Profile connection (done 2026-11-02) is how Claude pulls reviews, posts replies and publishes weekly GBP posts; it stops working when the Zapier task quota runs out.
 16. **Fill the `[[GGP FILL]]` markers** in seo/content/ drafts and seo/schema/facts.json (pool types built, price ranges, warranty, timelines, founding year, author byline). HIC confirmed as 13VH13660100.
 17. **Send Claude one real project update per week** (town, service, stage, 3 photos) for the GBP post + YouTube Short script.
@@ -27,7 +27,10 @@ Maintained by Claude. Items need Jared or someone with account access. Claude em
 21. **Enroll in manufacturer dealer locators** for brands you actually install: Pentair Pro Locator, Hayward Totally Hayward (via your rep), Latham Builder, Jandy/Fluidra Pro, PebbleTec Find-a-Builder.
 22. **Register free listing** on Pool Magazine's Pool Industry Directory.
 
+23. **Check whether the Google/Yelp profile photos are renders.** A new Yelp 1★ says "all of their photos are AI." If any listing photos are AI renders or stock, replace them with real job photos (before/after, crew, town). Reviewers and AI models both flag it.
+
 ## Done
+- 2026-11-09 Second Monday task email sent from info@goodguyspools.com; weekly AI check 21.4% (+7.1); two new Google 5★ added to review hub
 - 2026-11-02 Google Business Profile connected to Zapier; all 44 Google reviews pulled verbatim; 37 five-star reviews with text now on goodguyspoolsreviews.com (40 total with Thumbtack)
 - 2026-11-02 Angi/HomeAdvisor Pro address updated to 238 West St (owner-reported; town pages will lag)
 - 2026-11-02 First Monday task email sent from info@goodguyspools.com via Zapier
