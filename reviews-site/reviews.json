@@ -10,7 +10,7 @@
     {
       "platform": "Google",
       "rating": 4.7,
-      "count": 44,
+      "count": 46,
       "url": "https://www.google.com/maps/search/Good+Guys+Pools+South+Hackensack+NJ"
     },
     {
@@ -39,6 +39,26 @@
     }
   ],
   "reviews": [
+    {
+      "id": "g-2026-11-09-richardr",
+      "name": "Richard R.",
+      "rating": 5,
+      "date": "2026-11-09",
+      "source": "Google",
+      "source_url": "https://www.google.com/maps/search/Good+Guys+Pools+South+Hackensack+NJ",
+      "service": "service",
+      "text": "Excellent service, courteous, helpful and the price was reasonable. From start to finish , the men who installed the cover were professional and knowledgeable as to the correct method of installation, and final clean up afterwards. Highly recommend for all pool needs.\nThank you again!!!!!"
+    },
+    {
+      "id": "g-2026-11-06-adamf",
+      "name": "Adam F.",
+      "rating": 5,
+      "date": "2026-11-06",
+      "source": "Google",
+      "source_url": "https://www.google.com/maps/search/Good+Guys+Pools+South+Hackensack+NJ",
+      "service": "construction",
+      "text": "Highly recommend Good Guys!  Iziah and the team did a beautiful job on our summer camp's pool.  Their work was professional and at a very reasonable price.  We have a large, commercial pool and Good Guys were able to effectively manage this large project with care and attention to detail.  Even other contractors passing by were complimentary of their high quality of work!  Thank you Iziah and the Good Guys team for going above and beyond to help us build such a great pool for our campers - we are so grateful and couldn't be more pleased."
+    },
     {
       "id": "tt-2025-10-17-mf",
       "name": "MIke F.",

@@ -26,3 +26,17 @@ Pulled from the Google Business Profile API. 44 reviews, 4.7 average. 40 have an
 - Reply to all three 1★ reviews within the week. AI answers and Google both weigh *recent* reviews, and a calm, specific owner reply is read by every future customer.
 - Never argue, never name the customer's details, never offer anything in exchange for changing the review.
 - Review link to send customers for new reviews: use the "Get more reviews" short link in the GBP app, then put it on the invoice footer and a QR on the truck.
+
+
+## Added 2026-11-09: two new 5★ reviews, no reply yet
+### 5. Richard Romano, 5★, 2026-11-09 (pool cover installation)
+> Excellent service, courteous, helpful and the price was reasonable. From start to finish, the men who installed the cover were professional and knowledgeable... Highly recommend for all pool needs.
+
+**Draft reply:** Thank you, Richard! Glad the cover install went smoothly and the crew left the yard clean. Enjoy the off-season, and we're a phone call away for the spring opening.
+
+### 6. Adam Finn, 5★, 2026-11-06 (commercial pool, summer camp)
+> Highly recommend Good Guys! Iziah and the team did a beautiful job on our summer camp's pool... We have a large, commercial pool and Good Guys were able to effectively manage this large project with care and attention to detail.
+
+**Draft reply:** Thank you, Adam. Building a commercial pool for a camp is a different scale of project, and the whole team is proud of how it turned out. We hope the campers get many great summers out of it. Call us anytime for service or seasonal openings.
+
+**Note:** this is the first review mentioning commercial work. If GGP wants commercial pool construction as a service line, this review is the proof point for a "Commercial pools" page and a GBP service entry.
