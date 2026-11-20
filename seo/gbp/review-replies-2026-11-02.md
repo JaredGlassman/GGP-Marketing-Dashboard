@@ -1,5 +1,7 @@
 # Google review replies awaiting owner approval (2026-11-02)
 
+**Update 2026-11-20:** replies 1, 5 and 6 (Chester, Adam, Richard) were posted by the owner on 11/18. Replies 2, 3, 4 (the three 1★) are still unanswered. See the 11/16 weekly report for a compliance flag on two new reviews.
+
 Pulled from the Google Business Profile API. 44 reviews, 4.7 average. 40 have an owner reply; these 4 do not. Reply from the GBP app, or tell Claude "post reply 1/2/3/4" and it will post via the connected Zapier Google Business Profile account. Edit anything that isn't accurate first; every reply must be true.
 
 ## 1. chester arthur, 5★, 2026-10-20 (no reply for 13 days)
