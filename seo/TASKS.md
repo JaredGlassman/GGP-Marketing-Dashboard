@@ -5,7 +5,7 @@ Maintained by Claude. Items need Jared or someone with account access. Claude em
 ## Open (ordered by impact)
 0. **Delete the two insider Google reviews** (Ben Ninio 11/11, Jared Glassman 11/18) from the accounts that posted them. Owner/employee reviews violate Google policy and the FTC consumer-review rule, and they are visible to anyone reading the profile.
 1. **Reply publicly to the two May 2026 HomeAdvisor 1★ reviews** (unfinished concrete pool with open permits; fiberglass refinish delays). Resolve the jobs, close permits, post factual owner replies. Recent negatives are what AI answers quote.
-2. **Fix HomeAdvisor/Angi profile** (call HomeAdvisor): merge the two duplicate profiles (5.0/14 and 4.6/19), change categories to In-Ground Pool Build + Remodel (currently Enclosures/Heaters/Covers), set service area to Bergen/Passaic/Morris/Essex, correct "1 year of experience / since 2025" only if inaccurate, and fix the "does not offer warranties" FAQ.
+2. **Fix HomeAdvisor/Angi profile** (call HomeAdvisor): merge the duplicate profiles, change categories to In-Ground Pool Build + Remodel, set service area to Bergen/Passaic/Morris/Essex, set ONE founding year that matches Thumbtack, and fix the "does not offer warranties" FAQ (AI now quotes it as a contradiction: HomeAdvisor says no warranties, Thumbtack says "industry-leading warranties"). Also check whether the Ben N. / Jared G. insider reviews were mirrored to HomeAdvisor and remove them.
 3. **Verify in Thumbtack Pro whether a second profile exists** (search snippets show "Elizabeth, NJ 5.0/30"; the Thumbtack connector shows only South Hackensack 4.7/35). If it exists, merge it.
 4. **Create free profiles with canonical NAP + town-tagged project photos** on: Architect Magazine pro directory, HomeGuide, Patch business listing. These three pages surfaced in 9, 7 and 9 of the 14 baseline AI searches; competitors win because of them.
 5. **Ask the 30 Thumbtack reviewers (and recent customers) for a Google review** that mentions their town and the work done. Target 6–10 per month, steady.
@@ -31,6 +31,7 @@ Maintained by Claude. Items need Jared or someone with account access. Claude em
 23. **Check whether the Google/Yelp profile photos are renders.** A new Yelp 1★ says "all of their photos are AI." If any listing photos are AI renders or stock, replace them with real job photos (before/after, crew, town). Reviewers and AI models both flag it.
 
 ## Done
+- 2026-11-23 Monday email sent; weekly AI check 7.1% (flat); /contact/ links replaced with cost-calculator; no-prices rule recorded
 - 2026-11-18 Owner replies posted to the three unanswered 5★ Google reviews
 - 2026-11-20 Monday 11/16 email sent (late); weekly AI check 7.1% (−14.3)
 - 2026-11-09 Second Monday task email sent from info@goodguyspools.com; weekly AI check 21.4% (+7.1); two new Google 5★ added to review hub
