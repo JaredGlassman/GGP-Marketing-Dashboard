@@ -83,7 +83,7 @@ So the realistic winter plan is: everything on paper done by February, shovel in
 - **Deposit and payment schedule.** [[GGP FILL: only if GGP wants it public.]]
 - **Renovations.** Late summer through fall is the natural season for resurfacing, tile and coping, and liner replacement, so the pool is ready at spring opening. [[GGP FILL: confirm GGP's renovation season and typical durations.]]
 
-Call (201) 822-1189 or use https://www.goodguyspools.com/contact/ to get on the schedule.
+Call (201) 822-1189 or use https://www.goodguyspools.com/cost-calculator/ to get on the schedule.
 
 ## What are the trade-offs of starting a pool in spring or summer instead?
 

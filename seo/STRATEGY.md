@@ -6,6 +6,12 @@
 
 ---
 
+## 0a. Standing owner rules (from the "GGP weekly awareness agent", set up 2026-11-01)
+- **Never quote specific prices or dollar ranges anywhere.** Cost questions go to https://www.goodguyspools.com/cost-calculator/.
+- **/contact/ does not exist.** Use the cost calculator link or "call (201) 822-1189 for a free estimate" as the CTA.
+- A separate Thursday routine ("GGP weekly awareness agent") already drafts 2 GBP posts, press pitches, partner emails and community answers each week. The `gbp-post-writer` and `backlink-prospector` agents here overlap with it; use them for one-off deep dives, not the weekly cadence.
+- **Open conflict to resolve with Jared:** §3c (North Jersey Pool Cost Index, built on real price ranges) contradicts the no-prices rule. Options: (a) publish the index as *relative* cost drivers and percentages with no dollar figures, feeding the calculator; (b) get an explicit exception for the index page only. Until decided, every `[[GGP FILL]]` price cell in seo/content/pool-cost-north-jersey.md stays unfilled.
+
 ## 0. Read this first: the hard truths
 
 1. **"#1 on Google across a 50-mile radius" is three different games, and you can only fully win two.**

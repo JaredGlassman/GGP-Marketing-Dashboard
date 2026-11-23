@@ -199,4 +199,4 @@ Yes. New Jersey's Uniform Construction Code requires a barrier at least 48 inche
 From Good Guys Pools' own executed contracts for pools built in New Jersey, as described in the methodology section. Nothing in the GGP columns is estimated or borrowed from national cost sites.
 
 ---
-*Compiled by [[GGP FILL: author]], Good Guys Pools, 238 West St, South Hackensack, NJ 07606 · (201) 822-1189 · NJ HIC #13VH13660100. Figures are historical contract data and not a quote. Request a site-specific estimate at https://www.goodguyspools.com/contact/.*
+*Compiled by [[GGP FILL: author]], Good Guys Pools, 238 West St, South Hackensack, NJ 07606 · (201) 822-1189 · NJ HIC #13VH13660100. Figures are historical contract data and not a quote. Request a site-specific estimate at https://www.goodguyspools.com/cost-calculator/.*

@@ -143,7 +143,7 @@
     "name": "Book a pool consultation or estimate",
     "target": {
       "@type": "EntryPoint",
-      "urlTemplate": "https://www.goodguyspools.com/contact/",
+      "urlTemplate": "https://www.goodguyspools.com/cost-calculator/",
       "actionPlatform": [
         "https://schema.org/DesktopWebPlatform",
         "https://schema.org/MobileWebPlatform"
